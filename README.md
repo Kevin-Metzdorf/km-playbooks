@@ -7,6 +7,7 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 | Pfad | Zweck |
 |------|-------|
 | `docs/prozess.md` | Der SDD-Ablauf: Phasen, Gates, Board, wann voll / wann schlank |
+| `docs/ci.md` | Einbindung der wiederverwendbaren Theme Check- und Lighthouse-CI |
 | `docs/spec-vorlage.md` | Vorlage für `docs/specs/<thema>.md` im Projekt-Repo |
 | `docs/prompts.md` | Start-Prompts für jede Situation |
 | `docs/beispiel-relaunch-headless-zu-native.md` | Ausgearbeitetes Beispiel |
@@ -40,6 +41,10 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 ```
 
 Danach im Projekt-Repo den Abschnitt aus `templates/AGENTS.sdd-section.md` in die `AGENTS.md` übernehmen und auf das Projekt anpassen.
+
+Für Theme-Repos können zusätzlich die CI-Vorlagen übernommen werden:
+`./scripts/apply-templates.sh /pfad/zum/projekt-repo --theme`. Details stehen in
+[`docs/ci.md`](docs/ci.md).
 
 ## Regeln
 

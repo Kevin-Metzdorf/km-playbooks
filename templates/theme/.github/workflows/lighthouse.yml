@@ -1,0 +1,29 @@
+name: Lighthouse
+
+on:
+  pull_request:
+    types:
+      - labeled
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  lighthouse:
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'lighthouse'
+    uses: Kevin-Metzdorf/km-playbooks/.github/workflows/theme-lighthouse.yml@v1
+    with:
+      theme_root: "."
+      min_performance: "0.6"
+      min_accessibility: "0.9"
+      product_handle: "" # Optional: value from the project spec.
+      collection_handle: "" # Optional: value from the project spec.
+      pull_theme: "" # Optional: theme ID or name from the project spec.
+    secrets:
+      SHOP_STORE: ${{ secrets.SHOP_STORE }}
+      SHOP_CLIENT_ID: ${{ secrets.SHOP_CLIENT_ID }}
+      SHOP_CLIENT_SECRET: ${{ secrets.SHOP_CLIENT_SECRET }}
+      SHOP_PASSWORD: ${{ secrets.SHOP_PASSWORD }}
+      LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

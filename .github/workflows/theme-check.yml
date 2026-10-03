@@ -1,0 +1,67 @@
+name: Theme Check
+
+on:
+  workflow_call:
+    inputs:
+      theme_root:
+        description: Path from the repository root to the theme.
+        type: string
+        required: false
+        default: "."
+      flags:
+        description: Additional flags passed to Theme Check.
+        type: string
+        required: false
+        default: ""
+      base:
+        description: Base ref used to annotate changed lines.
+        type: string
+        required: false
+        default: main
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  theme-check:
+    name: Theme Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for theme Liquid files
+        id: theme
+        shell: bash
+        env:
+          THEME_ROOT: ${{ inputs.theme_root }}
+        run: |
+          if [[ ! -d "$THEME_ROOT" ]]; then
+            echo "::error::Theme root '$THEME_ROOT' does not exist."
+            exit 1
+          fi
+
+          liquid_file="$(find "$THEME_ROOT" -type f -name '*.liquid' -not -path '*/.git/*' -not -path '*/node_modules/*' -print -quit)"
+          if [[ -n "$liquid_file" ]]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::No Liquid files found under '$THEME_ROOT'; skipping Theme Check."
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Theme Check
+        if: steps.theme.outputs.present == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork != true)
+        uses: shopify/theme-check-action@v2
+        with:
+          theme_root: ${{ inputs.theme_root }}
+          flags: ${{ inputs.flags }}
+          token: ${{ github.token }}
+          base: ${{ inputs.base }}
+
+      - name: Theme Check without fork annotations
+        if: steps.theme.outputs.present == 'true' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == true
+        uses: shopify/theme-check-action@v2
+        with:
+          theme_root: ${{ inputs.theme_root }}
+          flags: ${{ inputs.flags }}
+          base: ${{ inputs.base }}

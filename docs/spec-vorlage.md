@@ -43,8 +43,8 @@ Issue: #<nr>
 ### 5.2 Querschnitt (gilt für alles)
 
 - [ ] Responsive geprüft bei 375 / 768 / 1280 px
-- [ ] Tastaturbedienbar, Fokus sichtbar, Lighthouse Accessibility ≥ 90
-- [ ] Lighthouse Performance mobil ≥ <Wert> auf <Seiten>
+- [ ] Tastaturbedienbar, Fokus sichtbar
+- [ ] Lighthouse mobil: Performance ≥ <0–1> und Accessibility ≥ <0–1> auf <Seiten / Handles>
 - [ ] Alle Texte über Locale-Dateien
 - [ ] Inhalte ohne Code-Änderung pflegbar
 

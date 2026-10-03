@@ -10,8 +10,9 @@ description: Review eines Pull Requests in Shopify-Theme- oder -App-Repos gegen 
 1. `AGENTS.md` lesen (Konventionen, Definition of Done).
 2. Verknüpftes Issue (`Closes #`) und ggf. Spec-Abschnitt lesen.
 3. Diff vollständig lesen.
-4. Für **jedes Akzeptanzkriterium** feststellen: erfüllt / nicht erfüllt / nicht prüfbar aus dem Code – mit Beleg (Datei:Zeile).
-5. Shopify-spezifisch prüfen (Liquid bzw. GraphQL über Shopify Dev MCP verifizieren, API-Version nennen).
+4. Prüfen, ob die relevanten CI-Checks grün sind; Theme-Kriterien erst danach abhaken. Fehlende oder rote Checks als nicht erfüllt/blockierend benennen.
+5. Für **jedes Akzeptanzkriterium** feststellen: erfüllt / nicht erfüllt / nicht prüfbar aus dem Code – mit Beleg (Datei:Zeile).
+6. Shopify-spezifisch prüfen (Liquid bzw. GraphQL über Shopify Dev MCP verifizieren, API-Version nennen).
 
 ## Prüfpunkte
 
