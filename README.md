@@ -46,3 +46,7 @@ Danach im Projekt-Repo den Abschnitt aus `templates/AGENTS.sdd-section.md` in di
 - `AGENTS.md` des Projekt-Repos hat Vorrang vor allem hier.
 - In Kunden-Orgs mit eigenen Vorlagen: deren Vorlagen nutzen, hier nur die Skills.
 - Keine Zugangsdaten, Tokens oder Kundendaten in dieses Repo.
+
+## Lizenz
+
+Dieses Projekt steht unter der [MIT-Lizenz](LICENSE).

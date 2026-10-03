@@ -14,5 +14,5 @@ for dir in "$ROOT"/skills/*/; do
     continue
   fi
   ln -sfn "${dir%/}" "$link"
-  echo "verlinkt: $name -> $link"
+  echo "verlinkt: $link -> ${dir%/}"
 done
