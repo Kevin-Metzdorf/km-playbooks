@@ -19,6 +19,10 @@ Jede Phase endet mit einem **Artefakt** und einem **Gate**. Erst wenn das Gate e
 | 5 | Implementierung | Bauen | Branch + PR je Issue | CI/Theme Check grün, PR verlinkt Issue | Situations-Skill |
 | 6 | Prüfung | Erfüllt es die Spec? | Review, Abnahme | Alle Kriterien ✅ | `km-pr-review` |
 
+Für Theme-Repos gehören der grüne Theme-Check-Pflicht-Check und – wenn in der
+Spec Performance-Ziele stehen – der Lighthouse-Lauf zur Prüfung. Einrichtung,
+Secrets und Branch-Regel: [`docs/ci.md`](ci.md).
+
 ## Wann voll, wann schlank?
 
 | Aufgabe | Vorgehen | Skill |

@@ -1,0 +1,15 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  theme-check:
+    uses: Kevin-Metzdorf/km-playbooks/.github/workflows/theme-check.yml@v1

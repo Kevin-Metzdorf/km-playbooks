@@ -1,0 +1,99 @@
+name: Lighthouse
+
+on:
+  workflow_call:
+    inputs:
+      theme_root:
+        description: Path from the repository root to the theme.
+        type: string
+        required: false
+        default: "."
+      min_performance:
+        description: Minimum Lighthouse performance score, from 0 to 1.
+        type: string
+        required: false
+        default: "0.6"
+      min_accessibility:
+        description: Minimum Lighthouse accessibility score, from 0 to 1.
+        type: string
+        required: false
+        default: "0.9"
+      product_handle:
+        description: Product handle to audit; defaults to the first product.
+        type: string
+        required: false
+        default: ""
+      collection_handle:
+        description: Collection handle to audit; defaults to the first collection.
+        type: string
+        required: false
+        default: ""
+      pull_theme:
+        description: Theme ID or name from which settings and JSON templates are read.
+        type: string
+        required: false
+        default: ""
+    secrets:
+      SHOP_STORE:
+        description: Shopify store domain used by the Lighthouse action.
+        required: true
+      SHOP_CLIENT_ID:
+        description: Dev Dashboard app client ID.
+        required: true
+      SHOP_CLIENT_SECRET:
+        description: Dev Dashboard app client secret.
+        required: true
+      SHOP_PASSWORD:
+        description: Optional storefront password.
+        required: false
+      LHCI_GITHUB_APP_TOKEN:
+        description: Optional Lighthouse CI GitHub App token for PR status checks.
+        required: false
+
+permissions:
+  contents: read
+  checks: write
+
+concurrency:
+  group: lighthouse-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse:
+    name: Lighthouse
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork != true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate required Shopify secrets
+        shell: bash
+        env:
+          SHOP_STORE: ${{ secrets.SHOP_STORE }}
+          SHOP_CLIENT_ID: ${{ secrets.SHOP_CLIENT_ID }}
+          SHOP_CLIENT_SECRET: ${{ secrets.SHOP_CLIENT_SECRET }}
+        run: |
+          missing=()
+          [[ -n "$SHOP_STORE" ]] || missing+=("SHOP_STORE")
+          [[ -n "$SHOP_CLIENT_ID" ]] || missing+=("SHOP_CLIENT_ID")
+          [[ -n "$SHOP_CLIENT_SECRET" ]] || missing+=("SHOP_CLIENT_SECRET")
+
+          if (( ${#missing[@]} > 0 )); then
+            printf '::error::Missing required GitHub Actions secrets: %s. Add them in Settings > Secrets and variables > Actions.\n' "$(IFS=', '; echo "${missing[*]}")"
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - name: Lighthouse
+        uses: shopify/lighthouse-ci-action@v1
+        with:
+          store: ${{ secrets.SHOP_STORE }}
+          client_id: ${{ secrets.SHOP_CLIENT_ID }}
+          client_secret: ${{ secrets.SHOP_CLIENT_SECRET }}
+          password: ${{ secrets.SHOP_PASSWORD }}
+          lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          theme_root: ${{ inputs.theme_root }}
+          lhci_min_score_performance: ${{ inputs.min_performance }}
+          lhci_min_score_accessibility: ${{ inputs.min_accessibility }}
+          product_handle: ${{ inputs.product_handle }}
+          collection_handle: ${{ inputs.collection_handle }}
+          pull_theme: ${{ inputs.pull_theme }}
