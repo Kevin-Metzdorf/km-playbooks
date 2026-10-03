@@ -27,9 +27,9 @@ Kunden-Live-Store. Es gibt hier kein Deployment und keinen `theme publish`.
 
    Das Skript überschreibt keine vorhandenen Dateien. Für eine Theme-App-
    Extension liegt die Beispielkonfiguration zusätzlich unter
-   `templates/theme-app-extension/.theme-check.yml`; kopiert sie in das
-   Extension-Verzeichnis und setzt `theme_root` im aufrufenden Workflow auf
-   dieses Verzeichnis.
+   `templates/theme-app-extension/.theme-check.yml`; kopiert sie manuell in
+   das Verzeichnis der Extension (z. B. `extensions/<name>/.theme-check.yml`)
+   und setzt `theme_root` im aufrufenden Workflow auf dieses Verzeichnis.
 
 2. Für Lighthouse eine Dev-Dashboard-App anlegen, die App im passenden
    Dev-/Staging-Store installieren und die erforderlichen Secrets im
@@ -40,12 +40,15 @@ Kunden-Live-Store. Es gibt hier kein Deployment und keinen `theme publish`.
    Dateien oder Logs übernehmen.
 
    Die App benötigt die Berechtigungen `read_products` und `write_themes`.
-   Tokens werden von der Lighthouse-Action für den Lauf bezogen; Legacy-
-   Custom-App-Tokens werden nicht unterstützt.
+   Tokens werden von der Lighthouse-Action für den Lauf bezogen. Dieser
+   Workflow unterstützt nur `client_id`/`client_secret`, nicht den
+   Legacy-Parameter `access_token`.
 
 3. In den Repository-Regeln für `main` den Status-Check **Theme Check** als
    Pflicht-Check setzen. Die Lighthouse-Vorlage startet nur manuell oder wenn
-   ein PR das Label `lighthouse` erhält; sie läuft nicht bei jedem Push.
+   ein PR das Label `lighthouse` erhält; sie läuft beim Setzen des Labels,
+   nicht bei jedem neuen Commit. Für einen neuen Lauf das Label entfernen und
+   erneut setzen oder `workflow_dispatch` verwenden.
    PR-Läufe aus Forks werden übersprungen, da diese keine Repository-Secrets
    erhalten.
 
@@ -57,6 +60,8 @@ Lighthouse-Aufrufer ist separat, damit seine Nutzung bewusst ausgelöst wird.
 
 - `theme_root` verweist auf den Theme-Root relativ zum Repo (Standard `.`).
   Theme Check unterstützt auch Unterordner, etwa `./dist`.
+- Findet Theme Check unter `theme_root` keine `.liquid`-Dateien (z. B. in
+  einem leeren Repo), endet der Workflow mit einer Warnung und grünem Status.
 - Lighthouse hat Standard-Mindestwerte Performance `0.6` und Accessibility
   `0.9`. Tragt konkrete Ziele in die Spec ein und überschreibt sie in der
   Lighthouse-Workflow-Vorlage.
