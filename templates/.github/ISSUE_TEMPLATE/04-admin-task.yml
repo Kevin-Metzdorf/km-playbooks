@@ -1,0 +1,53 @@
+name: Admin-Aufgabe
+description: Arbeit im Shopify Admin – kein Code (Metaobjects, Navigation, Redirects, Markets, Apps …).
+title: "[Admin] "
+labels: ["admin-task"]
+body:
+  - type: markdown
+    attributes:
+      value: "Diese Aufgabe wird **nicht im Repo** erledigt. Sie wird im Shopify Admin durchgeführt und hier dokumentiert."
+  - type: dropdown
+    id: art
+    attributes:
+      label: Art
+      multiple: true
+      options:
+        - Metafield-/Metaobject-Definition
+        - Metaobject-/Metafield-Inhalte
+        - Navigation / Menüs
+        - URL-Redirects
+        - Markets / Sprachen / Domains
+        - Checkout-Einstellungen
+        - App installieren / konfigurieren
+        - Theme veröffentlichen
+        - Sonstiges
+    validations:
+      required: true
+  - type: textarea
+    id: was
+    attributes:
+      label: Was genau ist zu tun?
+    validations:
+      required: true
+  - type: input
+    id: abhaengig
+    attributes:
+      label: Wird benötigt von
+      placeholder: "#23, #24"
+  - type: dropdown
+    id: wer
+    attributes:
+      label: Wer führt es durch?
+      options:
+        - Kevin
+        - Kunde
+        - Agentur
+    validations:
+      required: true
+  - type: textarea
+    id: erledigt
+    attributes:
+      label: Erledigt-Kriterium
+      value: "- [ ] "
+    validations:
+      required: true

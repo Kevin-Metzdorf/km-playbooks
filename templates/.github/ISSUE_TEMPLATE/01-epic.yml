@@ -1,0 +1,47 @@
+name: Epic
+description: Größeres Vorhaben (z. B. Relaunch, neue App) – bündelt Spec und Feature-Issues.
+title: "[Epic] "
+labels: ["epic", "needs-spec"]
+body:
+  - type: textarea
+    id: ziel
+    attributes:
+      label: Ziel
+      description: Warum wird das gemacht? Welches Problem wird für wen gelöst?
+    validations:
+      required: true
+  - type: textarea
+    id: erfolg
+    attributes:
+      label: Erfolgsmessung
+      description: Woran erkennen wir nach Go-Live, dass es funktioniert? Messbar formulieren.
+      placeholder: "- Conversion mobil mindestens auf Vorniveau\n- Keine 404 für die Top-500-URLs"
+    validations:
+      required: true
+  - type: textarea
+    id: umfang
+    attributes:
+      label: Umfang
+      value: "**Enthalten**\n- \n\n**Nicht enthalten**\n- "
+    validations:
+      required: true
+  - type: textarea
+    id: rahmen
+    attributes:
+      label: Rahmenbedingungen
+      description: Termin, Budget, Go-Live-Fenster, Abnahme durch, Inhalte geliefert von.
+  - type: input
+    id: spec
+    attributes:
+      label: Spec-Dokument
+      placeholder: docs/specs/<thema>.md
+  - type: textarea
+    id: issues
+    attributes:
+      label: Zugehörige Issues
+      description: Wird nach Freigabe der Spec befüllt (Sub-Issues oder Liste).
+  - type: textarea
+    id: freigabe
+    attributes:
+      label: Freigabe
+      value: "- [ ] Spec freigegeben von: ___ am: ___ (Version: ___)"

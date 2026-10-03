@@ -1,0 +1,31 @@
+# Standard-Labels. Synchronisieren mit: ./scripts/sync-labels.sh owner/repo
+- name: epic
+  color: "5319e7"
+  description: Größeres Vorhaben, bündelt Spec und Feature-Issues
+- name: feature
+  color: "0e8a16"
+  description: Umsetzbares Feature mit Akzeptanzkriterien
+- name: bug
+  color: "d73a4a"
+  description: Verhalten weicht von Spec oder Erwartung ab
+- name: admin-task
+  color: "fbca04"
+  description: Arbeit im Shopify Admin, kein Code
+- name: change-request
+  color: "d93f0b"
+  description: Änderung gegenüber freigegebener Spec
+- name: question
+  color: "cc317c"
+  description: Offene Frage, blockiert Spec oder Umsetzung
+- name: needs-spec
+  color: "c5def5"
+  description: Spec oder Akzeptanzkriterien fehlen noch
+- name: needs-approval
+  color: "bfd4f2"
+  description: Wartet auf Freigabe durch Kunde
+- name: theme
+  color: "1d76db"
+  description: Betrifft das Theme
+- name: app
+  color: "006b75"
+  description: Betrifft eine Shopify-App

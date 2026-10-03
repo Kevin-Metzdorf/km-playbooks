@@ -1,0 +1,39 @@
+name: Change Request
+description: Änderung oder Erweiterung gegenüber der freigegebenen Spec.
+title: "[CR] "
+labels: ["change-request", "needs-approval"]
+body:
+  - type: input
+    id: spec
+    attributes:
+      label: Betroffene Spec / Issues
+      placeholder: "docs/specs/<thema>.md v1.0 · #12"
+    validations:
+      required: true
+  - type: textarea
+    id: wunsch
+    attributes:
+      label: Gewünschte Änderung
+    validations:
+      required: true
+  - type: textarea
+    id: grund
+    attributes:
+      label: Begründung
+  - type: textarea
+    id: auswirkung
+    attributes:
+      label: Auswirkung
+      value: "- Aufwand: \n- Termin: \n- Betroffene Kriterien/Issues: \n- Risiken: "
+    validations:
+      required: true
+  - type: textarea
+    id: kriterien
+    attributes:
+      label: Neue/geänderte Akzeptanzkriterien
+      value: "- [ ] **Gegeben** …, **wenn** …, **dann** …"
+  - type: textarea
+    id: freigabe
+    attributes:
+      label: Freigabe
+      value: "- [ ] Freigegeben von: ___ am: ___\n- [ ] Spec aktualisiert auf Version: ___"

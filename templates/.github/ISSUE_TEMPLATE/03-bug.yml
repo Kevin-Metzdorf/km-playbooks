@@ -1,0 +1,42 @@
+name: Bug
+description: Etwas funktioniert nicht wie spezifiziert oder erwartet.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: ist
+    attributes:
+      label: Ist-Verhalten
+    validations:
+      required: true
+  - type: textarea
+    id: soll
+    attributes:
+      label: Soll-Verhalten
+      description: Falls vorhanden mit Verweis auf Spec/Akzeptanzkriterium.
+    validations:
+      required: true
+  - type: textarea
+    id: schritte
+    attributes:
+      label: Schritte zum Reproduzieren
+      value: "1. \n2. \n3. "
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL / Template
+      description: Keine personenbezogenen Daten (Kundennamen, E-Mails, Bestellnummern mit Personenbezug).
+  - type: input
+    id: umgebung
+    attributes:
+      label: Gerät / Browser
+      placeholder: iPhone 15, Safari 18
+  - type: textarea
+    id: kriterien
+    attributes:
+      label: Akzeptanzkriterien für den Fix
+      value: "- [ ] **Gegeben** …, **wenn** …, **dann** …"
+    validations:
+      required: true

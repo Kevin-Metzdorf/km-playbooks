@@ -1,0 +1,63 @@
+name: Feature
+description: Ein umsetzbares Feature mit testbaren Akzeptanzkriterien.
+title: "[Feature] "
+labels: ["feature"]
+body:
+  - type: input
+    id: epic
+    attributes:
+      label: Epic / Spec
+      placeholder: "#12 · docs/specs/<thema>.md#5-1"
+  - type: textarea
+    id: ziel
+    attributes:
+      label: Ziel
+      description: Was soll der Nutzer danach können? 1–3 Sätze.
+    validations:
+      required: true
+  - type: dropdown
+    id: bereich
+    attributes:
+      label: Bereich
+      options:
+        - Theme
+        - App
+        - Theme + App
+    validations:
+      required: true
+  - type: textarea
+    id: kriterien
+    attributes:
+      label: Akzeptanzkriterien
+      description: Jedes Kriterium mit Ja/Nein prüfbar. Keine Begriffe wie „schön“ oder „schnell“ ohne Messwert.
+      value: "- [ ] **Gegeben** …, **wenn** …, **dann** …\n- [ ] **Gegeben** …, **wenn** …, **dann** …"
+    validations:
+      required: true
+  - type: textarea
+    id: randfaelle
+    attributes:
+      label: Randfälle
+      placeholder: "leer, ausverkauft, sehr lange Texte, fehlende Bilder, keine Berechtigung, API-Fehler"
+  - type: checkboxes
+    id: querschnitt
+    attributes:
+      label: Querschnitt (gilt, sofern nicht abgewählt begründet)
+      options:
+        - label: Responsive (375 / 768 / 1280 px)
+        - label: Tastaturbedienbar, Fokus sichtbar
+        - label: Texte über Locale-Dateien
+        - label: Im Theme Editor bzw. in der App-UI ohne Code pflegbar
+  - type: textarea
+    id: admin
+    attributes:
+      label: Shopify-Admin-Abhängigkeiten
+      description: Was muss im Admin passieren (Metaobjects, Navigation, Markets …)? Dafür separate admin-task-Issues anlegen und hier verlinken.
+  - type: textarea
+    id: nicht
+    attributes:
+      label: Nicht enthalten
+  - type: textarea
+    id: fragen
+    attributes:
+      label: Offene Fragen
+      description: Solange hier etwas offen ist, bleibt das Issue in „Spec“.
