@@ -42,7 +42,6 @@ if [ "$THEME_MODE" = true ]; then
     copy "$f" "$DEST/.github/workflows/$(basename "$f")"
   done
   copy "$ROOT/templates/theme/.theme-check.yml" "$DEST/.theme-check.yml"
-  copy "$ROOT/templates/theme-app-extension/.theme-check.yml" "$DEST/templates/theme-app-extension/.theme-check.yml"
 fi
 
 echo
