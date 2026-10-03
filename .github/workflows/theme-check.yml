@@ -58,6 +58,31 @@ jobs:
           token: ${{ github.token }}
           base: ${{ inputs.base }}
 
+      - name: Enforce Theme Check Report result
+        if: steps.theme.outputs.present == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork != true)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+        run: |
+          if ! reports="$(gh api --paginate --slurp \
+            "repos/$GITHUB_REPOSITORY/commits/$REPORT_SHA/check-runs?check_name=Theme%20Check%20Report&filter=all&per_page=100")"; then
+            echo "::error::Could not read Theme Check Report for commit $REPORT_SHA."
+            exit 1
+          fi
+
+          if ! report="$(jq -ce '[.[].check_runs[] | select(.name == "Theme Check Report")] | sort_by(.created_at, .id) | last // empty' <<< "$reports")"; then
+            echo "::error::No Theme Check Report found for commit $REPORT_SHA."
+            exit 1
+          fi
+
+          status="$(jq -r '.status' <<< "$report")"
+          conclusion="$(jq -r '.conclusion' <<< "$report")"
+          if [[ "$status" != "completed" || "$conclusion" != "success" ]]; then
+            echo "::error::Latest Theme Check Report is $status with conclusion $conclusion for commit $REPORT_SHA."
+            exit 1
+          fi
+
       - name: Theme Check without fork annotations
         if: steps.theme.outputs.present == 'true' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork == true
         uses: shopify/theme-check-action@v2

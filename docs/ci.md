@@ -44,7 +44,7 @@ Kunden-Live-Store. Es gibt hier kein Deployment und keinen `theme publish`.
    Workflow unterstützt nur `client_id`/`client_secret`, nicht den
    Legacy-Parameter `access_token`.
 
-3. In den Repository-Regeln für `main` den Status-Check **Theme Check** als
+3. In den Repository-Regeln für `main` den Status-Check **theme-check / Theme Check** als
    Pflicht-Check setzen. Die Lighthouse-Vorlage startet nur manuell oder wenn
    ein PR das Label `lighthouse` erhält; sie läuft beim Setzen des Labels,
    nicht bei jedem neuen Commit. Für einen neuen Lauf das Label entfernen und
@@ -62,6 +62,21 @@ Lighthouse-Aufrufer ist separat, damit seine Nutzung bewusst ausgelöst wird.
   Theme Check unterstützt auch Unterordner, etwa `./dist`.
 - Findet Theme Check unter `theme_root` keine `.liquid`-Dateien (z. B. in
   einem leeren Repo), endet der Workflow mit einer Warnung und grünem Status.
+- **theme-check / Theme Check** ist der Pflicht-Job in der Aufrufer-Vorlage.
+  **Theme Check Report** liefert separat die Annotationen. Die Action mit
+  Token gibt bei Befunden selbst Exit-Code 0 zurück; der Workflow übernimmt
+  deshalb das Ergebnis des neuesten Reports für die PR-Head-SHA (sonst
+  `github.sha`) in den Job-Status. Ein fehlender, unvollständiger oder nicht
+  erfolgreicher Report sowie API-Fehler machen den Job rot. Nur Warnungen
+  lassen den Report und Job grün.
+- Der Token-Pfad der Action bewertet und annotiert nur Dateien mit Änderungen
+  gegenüber `base`; unveränderte Bestandsbefunde sind damit nicht vollständig
+  abgedeckt. Diese Grenze der Action bleibt auch beim Übernehmen des Reports.
+- Fork-PRs laufen ohne Annotation-Token. In diesem Pfad gibt
+  `shopify/theme-check-action@v2` den CLI-Exit-Code direkt weiter:
+  Fehler machen den Job rot, ohne Schreibrechte für Check-Runs zu benötigen.
+  Quellcode: [Token-/Fork-Pfad](https://github.com/Shopify/theme-check-action/blob/v2/src/index.ts),
+  [Report und SHA](https://github.com/Shopify/theme-check-action/blob/v2/src/addAnnotations.ts).
 - Lighthouse hat Standard-Mindestwerte Performance `0.6` und Accessibility
   `0.9`. Tragt konkrete Ziele in die Spec ein und überschreibt sie in der
   Lighthouse-Workflow-Vorlage.
