@@ -38,3 +38,4 @@ compatibility: "git, Shopify CLI. Optional: gh CLI oder GitHub-MCP."
 
 - `config/settings_data.json` nie anfassen. Nie auf ein Live-Theme pushen.
 - Keine personenbezogenen Daten aus Bestellungen oder Kundenkonten in Issues, Logs oder Commits.
+Rückfrage mit ask_user stellen.
