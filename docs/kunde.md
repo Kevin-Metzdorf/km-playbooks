@@ -17,7 +17,7 @@ Jira kommt nur dazu, wenn der Kunde selbst darin arbeitet. Sonst reicht Confluen
 | 1 Gespräch | Gesprächsnotiz in Confluence | Ziel, Wünsche, Termin, Budget nennen | 60 min |
 | 2 Spec-Entwurf | Spec-Seite v0.x mit Tabelle „Offene Fragen“ | Fragen beantworten (Kommentar auf der Seite oder Mail) | 2–5 Werktage |
 | 3 Freigabe | Spec-Seite v1.0, Aufwandsschätzung, Issue-Liste | Freigabe-Kommentar oder Mail: „Freigegeben, v1.0“ | – |
-| 4 Umsetzung | Status-Updates im Epic-Abschnitt der Seite | Nichts, außer bei Rückfragen | je Spec |
+| 4 Umsetzung | Status-Update per Mail oder Kommentar auf der Seite | Nichts, außer bei Rückfragen | je Spec |
 | 5 Abnahme | Abnahme-Checkliste (die Akzeptanzkriterien) | Jedes Kriterium prüfen und abhaken | – |
 
 ## Regeln
