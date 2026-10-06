@@ -1,12 +1,13 @@
 # km-playbooks
 
-Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdorf Ltd: GitHub-Vorlagen, Labels, Copilot-Skills und Prozessdoku für Shopify-Theme- und App-Projekte.
+Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdorf Ltd: GitHub-Vorlagen, Labels, Agent-Skills und Prozessdoku für Shopify-Theme- und App-Projekte. Die Skills folgen dem offenen [Agent-Skills-Standard](https://agentskills.io) und sind nicht an einen bestimmten Coding-Agenten gebunden.
 
 ## Inhalt
 
 | Pfad | Zweck |
 |------|-------|
 | `docs/prozess.md` | Der SDD-Ablauf: Phasen, Gates, Board, wann voll / wann schlank |
+| `docs/agenten.md` | Unterstützte Coding-Agenten: Status, Einrichtung, Besonderheiten |
 | `docs/ci.md` | Einbindung der wiederverwendbaren Theme Check- und Lighthouse-CI |
 | `skills/km-sdd-spec/assets/spec-vorlage.md` | Vorlage für `docs/specs/<thema>.md` im Projekt-Repo (vorher `docs/spec-vorlage.md`) |
 | `docs/kunde.md` | Kundensicht: Confluence als Schaufenster, Freigabeweg, Spec Sprint |
@@ -15,7 +16,7 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 | `docs/beispiel-relaunch-headless-zu-native.md` | Ausgearbeitetes Beispiel |
 | `templates/` | Dateien, die in Projekt-Repos kopiert werden (Issue-Formulare, PR-Vorlage, AGENTS.md-Abschnitt, Brücken `CLAUDE.md`/`GEMINI.md`) |
 | `labels.yml` | Standard-Labels |
-| `skills/` | Copilot-Skills (Playbooks) pro Situation |
+| `skills/` | Agent-Skills (Playbooks) pro Situation |
 | `scripts/` | Installation der Skills, Übernahme der Vorlagen, Label-Sync |
 
 ## Skills
@@ -32,7 +33,7 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 ## Einrichtung
 
 ```bash
-# 1. Skills für alle Agenten verfügbar machen: Symlinks nach ~/.agents/skills und ~/.claude/skills (Updates wirken sofort)
+# 1. Skills persönlich installieren: Symlinks nach ~/.agents/skills und ~/.claude/skills (Updates wirken sofort)
 ./scripts/install-skills.sh
 
 # 2. Vorlagen in ein Projekt-Repo übernehmen (überschreibt nichts Bestehendes)
@@ -42,13 +43,15 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 ./scripts/sync-labels.sh owner/repo
 ```
 
-Danach im Projekt-Repo den Abschnitt aus `templates/AGENTS.sdd-section.md` in die `AGENTS.md` übernehmen und auf das Projekt anpassen.
+Danach im Projekt-Repo den Abschnitt aus `templates/AGENTS.sdd-section.md` in die `AGENTS.md` übernehmen und auf das Projekt anpassen. `CLAUDE.md` und `GEMINI.md` (legt `apply-templates.sh` an) binden `AGENTS.md` nur ein; Regeln werden ausschließlich in `AGENTS.md` gepflegt.
 
 Für Theme-Repos können zusätzlich die CI-Vorlagen übernommen werden:
 `./scripts/apply-templates.sh /pfad/zum/projekt-repo --theme`. Details stehen in
 [`docs/ci.md`](docs/ci.md).
 
-Mit `--skills` landen die Skills zusätzlich im Projekt-Repo (`.agents/skills/`, für Claude Code verlinkt aus `.claude/skills/`), damit Cloud-Agenten und andere Entwickler sie haben. Kombinierbar mit `--theme`.
+Mit `--skills` landen die Skills zusätzlich im Projekt-Repo (`.agents/skills/`, verlinkt aus `.claude/skills/`), damit Cloud-Agenten und andere Entwickler sie haben. Kombinierbar mit `--theme`.
+
+Welche Coding-Agenten unterstützt sind und was je Agent zu beachten ist (Brücken, Rangfolge bei gleichnamigen Skills, Windows): [`docs/agenten.md`](docs/agenten.md).
 
 ## Regeln
 
