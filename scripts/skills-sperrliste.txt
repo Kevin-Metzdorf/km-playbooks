@@ -1,0 +1,10 @@
+# Begriffe, die in skills/ nicht vorkommen dürfen (ohne Groß-/Kleinschreibung, als fester Text).
+# Skills sind werkzeugneutral; Agentenspezifisches gehört nach docs/agenten.md.
+# „Cursor“ steht bewusst nicht hier: GraphQL-Paginierung (endCursor, Cursor-basiert) gäbe Fehlalarme.
+ask_user
+AskUserQuestion
+plan mode
+copilot
+claude
+codex
+gemini
