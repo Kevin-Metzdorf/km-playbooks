@@ -7,17 +7,22 @@ description: Spec-Driven Development für Shopify-Projekte (Theme und App). Verw
 
 Ziel: Aus einer losen Anforderung eine freigabefähige Spec machen. In diesem Skill wird **kein Code** geschrieben.
 
+## Werkzeuge
+
+- **Shopify-Prüfung:** über das Shopify Dev MCP. Ist es nicht verfügbar: installierte Shopify-Skills (z. B. `shopify-liquid`, `shopify-admin`) oder shopify.dev. Nicht Geprüftes als „ungeprüft“ kennzeichnen, nie aus dem Gedächtnis.
+- **GitHub (Issues, PRs, Project):** über `gh` CLI oder ein GitHub-MCP. Ist keins verfügbar: benötigte Inhalte beim Nutzer erfragen, Texte zum Anlegen als Markdown ausgeben und die manuellen Schritte nennen.
+
 ## Vorab
 
 1. `AGENTS.md` des Repos lesen. Sie hat Vorrang vor diesem Skill.
 2. Vorhandene Specs unter `docs/specs/` und offene Issues prüfen, um Doppelungen zu vermeiden.
-3. Shopify-Verhalten (Liquid, Admin GraphQL, Extensions) über das Shopify Dev MCP prüfen, nicht aus dem Gedächtnis. Die API-Version nennen.
+3. Shopify-Verhalten (Liquid, Admin GraphQL, Extensions) prüfen (siehe Werkzeuge) und die API-Version nennen.
 
 ## Phase 1 – Anforderung verstehen
 
 - Ziel, Nutzer, Erfolgsmessung, Termin und Budget erfassen.
 - Annahmen kurz notieren, statt jede Kleinigkeit zu fragen.
-- Nur bei Unklarheiten zu Architektur, Umfang, Sicherheit oder Datenintegrität **eine Frage nach der anderen** stellen (`ask_user`, möglichst mit Auswahl).
+- Nur bei Unklarheiten zu Architektur, Umfang, Sicherheit oder Datenintegrität **eine Frage nach der anderen** stellen, möglichst mit Auswahl; ein Rückfrage-Werkzeug des Agenten nutzen, falls vorhanden.
 
 ## Phase 2 – Spec schreiben
 

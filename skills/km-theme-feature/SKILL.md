@@ -10,13 +10,19 @@ description: Umsetzung eines Shopify-Theme-Features (Section, Block, Snippet, Te
 - Issue mit Akzeptanzkriterien existiert und ist freigegeben (nicht `needs-spec`/`needs-approval`).
 - `AGENTS.md` gelesen (Basis-Theme, Konventionen, Prüf-Befehle).
 
-## 1. Plan (Plan Mode)
+## Werkzeuge
 
+- **Shopify-Prüfung:** über das Shopify Dev MCP. Ist es nicht verfügbar: installierte Shopify-Skills (z. B. `shopify-liquid`, `shopify-admin`) oder shopify.dev. Nicht Geprüftes als „ungeprüft“ kennzeichnen, nie aus dem Gedächtnis.
+- **GitHub (Issues, PRs, Project):** über `gh` CLI oder ein GitHub-MCP. Ist keins verfügbar: benötigte Inhalte beim Nutzer erfragen, Texte zum Anlegen als Markdown ausgeben und die manuellen Schritte nennen.
+
+## 1. Plan (vor jeder Änderung)
+
+- Plan vorlegen und noch keine Datei ändern. Hat der Agent einen Plan-Modus, diesen nutzen.
 - Betroffene Dateien: `sections/`, `blocks/`, `snippets/`, `templates/*.json`, `locales/`, `assets/`
 - Für jeden Planschritt die Kriterien-ID angeben. Kriterien ohne Planschritt = Lücke → Frage stellen, nicht raten.
-- Liquid-Objekte, Filter, Schema-Settings und Theme-Blocks über das Shopify Dev MCP prüfen.
+- Liquid-Objekte, Filter, Schema-Settings und Theme-Blocks prüfen (siehe Werkzeuge).
 - Admin-Abhängigkeiten (Metafield-/Metaobject-Definitionen, Menüs) benennen und als `admin-task` verlinken.
-- Plan zur Bestätigung vorlegen.
+- Plan zur Bestätigung vorlegen. Erst nach ausdrücklicher Bestätigung umsetzen.
 
 ## 2. Umsetzung
 
@@ -30,7 +36,7 @@ description: Umsetzung eines Shopify-Theme-Features (Section, Block, Snippet, Te
 ## 3. Prüfung
 
 - `shopify theme check` (bzw. Befehl aus `AGENTS.md`) ohne neue Fehler.
-- Shopify-Dev-MCP-Validierung für geänderte Liquid-Dateien.
+- Geänderte Liquid-Dateien validieren (siehe Werkzeuge).
 - Preview nur in einem **unveröffentlichten** Theme (`shopify theme push --unpublished` bzw. Dev-Theme). Nie `--live`, nie das veröffentlichte Theme überschreiben.
 - Jedes Kriterium einzeln prüfen und Ergebnis notieren.
 

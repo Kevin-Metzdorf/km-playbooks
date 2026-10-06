@@ -5,6 +5,11 @@ description: Review eines Pull Requests in Shopify-Theme- oder -App-Repos gegen 
 
 # km-pr-review – PR gegen Spec und AGENTS.md prüfen
 
+## Werkzeuge
+
+- **Shopify-Prüfung:** über das Shopify Dev MCP. Ist es nicht verfügbar: installierte Shopify-Skills (z. B. `shopify-liquid`, `shopify-admin`) oder shopify.dev. Nicht Geprüftes als „ungeprüft“ kennzeichnen, nie aus dem Gedächtnis.
+- **GitHub (PR, Diff, Checks):** über `gh` CLI oder ein GitHub-MCP. Ist keins verfügbar: den lokalen Branch mit `git diff <basis>...HEAD` prüfen, den CI-Status als „nicht prüfbar“ melden statt abzuhaken und das Review als Markdown ausgeben.
+
 ## Vorgehen
 
 1. `AGENTS.md` lesen (Konventionen, Definition of Done).
@@ -12,7 +17,7 @@ description: Review eines Pull Requests in Shopify-Theme- oder -App-Repos gegen 
 3. Diff vollständig lesen.
 4. Prüfen, ob die relevanten CI-Checks grün sind; Theme-Kriterien erst danach abhaken. Fehlende oder rote Checks als nicht erfüllt/blockierend benennen.
 5. Für **jedes Akzeptanzkriterium** feststellen: erfüllt / nicht erfüllt / nicht prüfbar aus dem Code – mit Beleg (Datei:Zeile).
-6. Shopify-spezifisch prüfen (Liquid bzw. GraphQL über Shopify Dev MCP verifizieren, API-Version nennen).
+6. Shopify-spezifisch prüfen (Liquid bzw. GraphQL verifizieren, siehe Werkzeuge; API-Version nennen).
 
 ## Prüfpunkte
 

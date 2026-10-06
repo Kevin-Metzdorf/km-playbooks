@@ -7,6 +7,10 @@ description: Playbook für Shopify-Shop-Relaunches (z. B. Headless → natives O
 
 Baut auf `km-sdd-spec` auf. Zuerst `AGENTS.md` lesen; sie hat Vorrang.
 
+## Werkzeuge
+
+- **GitHub (Issues, PRs, Project):** über `gh` CLI oder ein GitHub-MCP. Ist keins verfügbar: benötigte Inhalte beim Nutzer erfragen, Texte zum Anlegen als Markdown ausgeben und die manuellen Schritte nennen.
+
 ## 1. Bestandsaufnahme (Ist-Zustand)
 
 Als Tabelle in der Spec dokumentieren. Für jeden Punkt festhalten: übernehmen / ersetzen / entfällt.
@@ -40,7 +44,7 @@ Mit `km-sdd-spec`. Zusätzlich verpflichtend:
 5. **Querschnitt:** Barrierefreiheit, Performance, SEO
 6. **Go-Live**
 
-Jede Stufe besteht aus Issues mit Kriterien. Plan Mode pro Issue; jeder Planschritt verweist auf eine Kriterien-ID.
+Jede Stufe besteht aus Issues mit Kriterien. Pro Issue zuerst einen Plan vorlegen, ohne Dateien zu ändern, und die Bestätigung abwarten; jeder Planschritt verweist auf eine Kriterien-ID.
 
 ## 4. Admin-Aufgaben (kein Code)
 
