@@ -8,6 +8,7 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 |------|-------|
 | `docs/prozess.md` | Der SDD-Ablauf: Phasen, Gates, Board, wann voll / wann schlank |
 | `docs/agenten.md` | Unterstützte Coding-Agenten: Status, Einrichtung, Besonderheiten |
+| `docs/agenten-test.md` | Konformitätstest: sieben Tests mit Ja/Nein-Kriterien und Ergebnis-Tabelle je Agent |
 | `docs/ci.md` | Einbindung der wiederverwendbaren Theme Check- und Lighthouse-CI |
 | `skills/km-sdd-spec/assets/spec-vorlage.md` | Vorlage für `docs/specs/<thema>.md` im Projekt-Repo (vorher `docs/spec-vorlage.md`) |
 | `docs/kunde.md` | Kundensicht: Confluence als Schaufenster, Freigabeweg, Spec Sprint |
