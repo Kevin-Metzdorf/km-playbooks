@@ -5,6 +5,10 @@ description: Schlanker SDD-Ablauf für Bugs in Shopify-Themes und -Apps – repr
 
 # km-bugfix – Bug reproduzieren und beheben
 
+## Werkzeuge
+
+- **GitHub (Issues, PRs, Project):** über `gh` CLI oder ein GitHub-MCP. Ist keins verfügbar: benötigte Inhalte beim Nutzer erfragen, Texte zum Anlegen als Markdown ausgeben und die manuellen Schritte nennen.
+
 ## 1. Verstehen
 
 - `AGENTS.md` lesen.
