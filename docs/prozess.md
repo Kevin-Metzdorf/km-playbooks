@@ -56,7 +56,7 @@ Metafield-/Metaobject-Definitionen und Inhalte, Navigation, Redirects, Markets, 
 
 ## Kunde und Confluence
 
-GitHub ist die Werkstatt, Confluence das Schaufenster. Die Spec entsteht im Repo; die kundenlesbare Kopie (Vorlage `templates/confluence/spec-seite.md`) wird im Confluence-Bereich des Kunden veröffentlicht, dort werden Fragen beantwortet und Freigaben gegeben. Details: [`docs/kunde.md`](kunde.md).
+GitHub ist die Werkstatt, Confluence das Schaufenster. Die Spec entsteht im Repo; die kundenlesbare Kopie (Vorlage `skills/km-sdd-spec/assets/confluence-spec-seite.md`) wird im Confluence-Bereich des Kunden veröffentlicht, dort werden Fragen beantwortet und Freigaben gegeben. Details: [`docs/kunde.md`](kunde.md).
 
 ## Change Requests
 

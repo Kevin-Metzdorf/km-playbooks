@@ -14,7 +14,7 @@ Erstelle Epic, Spec-Entwurf unter docs/specs/<thema>.md und die offenen Fragen. 
 
 ```
 Nutze km-sdd-spec. Veröffentliche docs/specs/<thema>.md, Version <x>, als kundenlesbare Kopie
-nach templates/confluence/spec-seite.md im Confluence-Bereich <Bereich> des Kunden.
+nach der Confluence-Vorlage aus km-sdd-spec im Confluence-Bereich <Bereich> des Kunden.
 Ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“; Kriterien als „Wenn/Dann“,
 ohne Voraussetzungen wegzulassen. Ist das Atlassian MCP verfügbar, lege die Seite dort direkt an;
 sonst gib Markdown zum Veröffentlichen aus. Die Spec im Repo bleibt die Quelle. Noch keine Umsetzungs-Issues anlegen.

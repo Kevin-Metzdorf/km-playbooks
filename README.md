@@ -8,9 +8,9 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 |------|-------|
 | `docs/prozess.md` | Der SDD-Ablauf: Phasen, Gates, Board, wann voll / wann schlank |
 | `docs/ci.md` | Einbindung der wiederverwendbaren Theme Check- und Lighthouse-CI |
-| `docs/spec-vorlage.md` | Vorlage für `docs/specs/<thema>.md` im Projekt-Repo |
+| `skills/km-sdd-spec/assets/spec-vorlage.md` | Vorlage für `docs/specs/<thema>.md` im Projekt-Repo (vorher `docs/spec-vorlage.md`) |
 | `docs/kunde.md` | Kundensicht: Confluence als Schaufenster, Freigabeweg, Spec Sprint |
-| `templates/confluence/spec-seite.md` | Kundenlesbare Spec-Seite für den Confluence-Bereich des Kunden |
+| `skills/km-sdd-spec/assets/confluence-spec-seite.md` | Kundenlesbare Spec-Seite für den Confluence-Bereich des Kunden (vorher `templates/confluence/spec-seite.md`) |
 | `docs/prompts.md` | Start-Prompts für jede Situation |
 | `docs/beispiel-relaunch-headless-zu-native.md` | Ausgearbeitetes Beispiel |
 | `templates/` | Dateien, die in Projekt-Repos kopiert werden (Issue-Formulare, PR-Vorlage, AGENTS.md-Abschnitt, Brücken `CLAUDE.md`/`GEMINI.md`) |

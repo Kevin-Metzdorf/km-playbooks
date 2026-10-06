@@ -1,6 +1,8 @@
 ---
 name: km-relaunch
 description: Playbook für Shopify-Shop-Relaunches (z. B. Headless → natives Online-Store-2.0/Horizon-Theme, Theme-Wechsel, Plattform-Migration). Verwenden für Bestandsaufnahme, Relaunch-Spec, Umsetzungsreihenfolge und Go-Live-Checkliste.
+license: MIT
+compatibility: "git; baut auf km-sdd-spec auf. Optional: gh CLI oder GitHub-MCP."
 ---
 
 # km-relaunch – Relaunch eines Shopify-Shops

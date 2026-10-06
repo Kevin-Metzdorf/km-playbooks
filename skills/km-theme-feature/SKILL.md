@@ -1,6 +1,8 @@
 ---
 name: km-theme-feature
 description: Umsetzung eines Shopify-Theme-Features (Section, Block, Snippet, Template) aus einem Issue mit Akzeptanzkriterien. Verwenden, wenn ein freigegebenes Theme-Issue geplant und implementiert werden soll.
+license: MIT
+compatibility: "git, Shopify CLI. Optional: gh CLI oder GitHub-MCP, Shopify Dev MCP."
 ---
 
 # km-theme-feature – Theme-Feature vom Issue zum PR
