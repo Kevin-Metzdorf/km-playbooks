@@ -13,7 +13,7 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 | `templates/confluence/spec-seite.md` | Kundenlesbare Spec-Seite für den Confluence-Bereich des Kunden |
 | `docs/prompts.md` | Start-Prompts für jede Situation |
 | `docs/beispiel-relaunch-headless-zu-native.md` | Ausgearbeitetes Beispiel |
-| `templates/` | Dateien, die in Projekt-Repos kopiert werden (Issue-Formulare, PR-Vorlage, AGENTS.md-Abschnitt) |
+| `templates/` | Dateien, die in Projekt-Repos kopiert werden (Issue-Formulare, PR-Vorlage, AGENTS.md-Abschnitt, Brücken `CLAUDE.md`/`GEMINI.md`) |
 | `labels.yml` | Standard-Labels |
 | `skills/` | Copilot-Skills (Playbooks) pro Situation |
 | `scripts/` | Installation der Skills, Übernahme der Vorlagen, Label-Sync |
