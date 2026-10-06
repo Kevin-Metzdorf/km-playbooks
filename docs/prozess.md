@@ -8,6 +8,8 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 
 Jede Phase endet mit einem **Artefakt** und einem **Gate**. Erst wenn das Gate erfüllt ist, geht es weiter.
 
+Der Ablauf hängt nicht an einem Werkzeug. Welche Coding-Agenten unterstützt sind und was je Agent zu beachten ist: [`docs/agenten.md`](agenten.md).
+
 ## Phasen
 
 | # | Phase | Frage | Artefakt | Gate | Skill |
@@ -15,7 +17,7 @@ Jede Phase endet mit einem **Artefakt** und einem **Gate**. Erst wenn das Gate e
 | 1 | Anforderung | Warum, was grob? | Epic-Issue | Ziel, Nicht-Ziele, Erfolgsmessung schriftlich | `km-sdd-spec` |
 | 2 | Spezifikation | Was genau? | `docs/specs/<thema>.md` + Feature-Issues | Jedes Kriterium mit Ja/Nein prüfbar | `km-sdd-spec` |
 | 3 | Klärung & Freigabe | Eindeutig und abgenommen? | Spec als Confluence-Seite veröffentlicht, offene Fragen beantwortet | Kunde hat auf der Confluence-Seite oder per Mail freigegeben (wer, wann, Version); Link im Epic eingetragen | `km-sdd-spec` |
-| 4 | Plan | Wie, in welcher Reihenfolge? | Umsetzungsplan (Plan Mode) | Jeder Schritt ↔ ein Kriterium | Situations-Skill |
+| 4 | Plan | Wie, in welcher Reihenfolge? | Umsetzungsplan, vorgelegt vor jeder Dateiänderung | Jeder Schritt ↔ ein Kriterium | Situations-Skill |
 | 5 | Implementierung | Bauen | Branch + PR je Issue | CI/Theme Check grün, PR verlinkt Issue | Situations-Skill |
 | 6 | Prüfung | Erfüllt es die Spec? | Review, Abnahme | Alle Kriterien ✅ | `km-pr-review` |
 
@@ -51,7 +53,7 @@ Metafield-/Metaobject-Definitionen und Inhalte, Navigation, Redirects, Markets, 
 - `AGENTS.md` im Projekt-Repo ist die Quelle der Wahrheit für Stack, Konventionen und Definition of Done.
 - `config/settings_data.json` wird nie angefasst.
 - Nie auf ein Live-Theme pushen; immer unveröffentlichtes Theme oder Dev-Store.
-- Shopify-API- und Liquid-Verhalten über das Shopify Dev MCP prüfen; API-Version nennen.
+- Shopify-API- und Liquid-Verhalten über das Shopify Dev MCP prüfen (sonst Shopify-Skills oder shopify.dev; Ungeprüftes kennzeichnen); API-Version nennen.
 - Keine Zugangsdaten, Tokens oder personenbezogenen Daten in Issues, Logs oder Commits.
 
 ## Kunde und Confluence

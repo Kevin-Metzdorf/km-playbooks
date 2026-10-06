@@ -19,7 +19,7 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 | 1 | Anforderung | *Warum* und *was grob*? | Epic-Issue „Relaunch“ | Ziel & Rahmen klar |
 | 2 | Spezifikation | *Was genau* soll das System tun? | Spec-Dokument + Feature-Issues mit Akzeptanzkriterien | Jedes Kriterium testbar |
 | 3 | Klärung & Freigabe | Ist alles eindeutig und vom Kunden abgenommen? | Offene-Fragen-Liste geschlossen, Freigabe-Kommentar | Kunde gibt frei |
-| 4 | Plan | *Wie* und in welcher Reihenfolge? | Umsetzungsplan pro Issue (Plan Mode) | Plan deckt alle Kriterien ab |
+| 4 | Plan | *Wie* und in welcher Reihenfolge? | Umsetzungsplan pro Issue, vor jeder Dateiänderung | Plan deckt alle Kriterien ab |
 | 5 | Implementierung | Bauen | Branch + PR pro Issue | CI grün, PR verlinkt Issue |
 | 6 | Prüfung | Erfüllt es die Spec? | Review + Abnahme-Checkliste | Alle Kriterien ✅ |
 
@@ -119,15 +119,15 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 
 ---
 
-## 4. Plan Mode – Umsetzungsplan
+## 4. Plan – Umsetzungsplan
 
 **Einfach erklärt:** Jetzt geht es um das *Wie*. Pro Issue: welche Dateien, welche Reihenfolge, welche Risiken, wie wird getestet.
 
-**So nutzt du das mit mir**
-1. Session im Repo öffnen, Plan Mode.
+**So läuft das mit dem Coding-Agenten**
+1. Sitzung im Repo öffnen; hat der Agent einen Plan-Modus, diesen nutzen.
 2. Prompt: *„Plane Issue #12 gemäß Spec und AGENTS.md. Ordne jeden Schritt einem Akzeptanzkriterium zu.“*
-3. Ich stelle Rückfragen, falls die Spec Lücken hat → zurück zu Phase 3, nicht raten.
-4. Du gibst den Plan frei.
+3. Der Agent stellt Rückfragen, falls die Spec Lücken hat → zurück zu Phase 3, nicht raten.
+4. Du gibst den Plan frei; erst danach ändert der Agent Dateien.
 
 **Reihenfolge-Empfehlung für den Relaunch**
 1. Basis: Theme-Setup, Design-Tokens, Layout, Header/Footer.
@@ -150,7 +150,7 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 - Konventionen aus `AGENTS.md` gelten.
 - Entwicklung gegen ein **unveröffentlichtes** Theme bzw. Dev-Store – nie direkt auf das Live-Theme pushen.
 - `config/settings_data.json` wird nicht angefasst – gehört dem Theme Editor.
-- Shopify-Dev-MCP / Theme Check zur Validierung von Liquid und Schemas.
+- Liquid und Schemas validieren: Shopify Dev MCP (sonst Shopify-Skills oder shopify.dev) und Theme Check.
 
 **Gate:** PR offen, CI/Theme Check grün, jedes Akzeptanzkriterium in der PR-Beschreibung als Checkbox.
 
@@ -161,7 +161,7 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 **Einfach erklärt:** Wir prüfen nicht „sieht gut aus“, sondern hakt jedes Kriterium aus der Spec einzeln ab.
 
 **Drei Ebenen**
-1. **Code-Review** (mit mir): PR gegen AGENTS.md und Akzeptanzkriterien.
+1. **Code-Review** (mit dem Coding-Agenten, Skill `km-pr-review`): PR gegen AGENTS.md und Akzeptanzkriterien.
 2. **Funktionale Prüfung**: Preview-Link des unveröffentlichten Themes, jedes Kriterium manuell oder per Playwright testen.
 3. **Kundenabnahme**: Kunde prüft auf Preview, bestätigt im Issue.
 
@@ -188,7 +188,7 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 | **PR-Template** | `Closes #`, Akzeptanzkriterien als Checkboxen, Preview-Link, Screenshots |
 | **`docs/specs/`** | Versionierte Specs im Repo – Quelle der Wahrheit für Feature-Verhalten |
 | **`AGENTS.md`** | Quelle der Wahrheit für Stack, Konventionen, Definition of Done |
-| **Copilot (ich)** | Phase 1–2: Spec + Issues entwerfen · Phase 3: offene Fragen sammeln · Phase 4: Plan Mode · Phase 5: Umsetzung · Phase 6: Review |
+| **Coding-Agent** ([`docs/agenten.md`](agenten.md)) | Phase 1–2: Spec + Issues entwerfen · Phase 3: offene Fragen sammeln · Phase 4: Plan · Phase 5: Umsetzung · Phase 6: Review |
 
 ### Wann voll, wann schlank?
 

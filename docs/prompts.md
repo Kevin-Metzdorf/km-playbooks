@@ -2,6 +2,8 @@
 
 Kopierfertige Einstiege. Die Skills liefern die Details; der Prompt nennt nur Situation und Eingaben.
 
+Die Prompts sind normale Sprache und funktionieren in jedem unterstützten Coding-Agenten. Wie man einen Skill je Agent ausdrücklich aufruft, steht in [`docs/agenten.md`](agenten.md).
+
 ## Neue Anforderung → Spec
 
 ```
@@ -47,13 +49,13 @@ Starte mit der Inventur und liefere Spec-Entwurf + offene Fragen.
 ## Neue Section / Block
 
 ```
-Nutze km-theme-feature für Issue #<nr>. Erst Plan Mode, dann umsetzen.
+Nutze km-theme-feature für Issue #<nr>. Erst den Plan vorlegen und auf meine Bestätigung warten, dann umsetzen.
 ```
 
 ## App-Feature
 
 ```
-Nutze km-app-feature für Issue #<nr>. Prüfe Scopes und API-Version über das Shopify Dev MCP, dann Plan.
+Nutze km-app-feature für Issue #<nr>. Prüfe Scopes und API-Version, dann den Plan vorlegen und auf meine Bestätigung warten.
 ```
 
 ## Bug
