@@ -1,6 +1,8 @@
 ---
 name: km-app-feature
 description: Umsetzung eines Shopify-App-Features (React-Router-Template, Admin GraphQL, Extensions) aus einem Issue mit Akzeptanzkriterien. Verwenden, wenn ein freigegebenes App-Issue geplant und implementiert werden soll.
+license: MIT
+compatibility: "git, Shopify CLI, Projekt-Tooling laut AGENTS.md. Optional: gh CLI oder GitHub-MCP, Shopify Dev MCP."
 ---
 
 # km-app-feature – App-Feature vom Issue zum PR

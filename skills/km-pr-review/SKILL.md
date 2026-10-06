@@ -1,6 +1,8 @@
 ---
 name: km-pr-review
 description: Review eines Pull Requests in Shopify-Theme- oder -App-Repos gegen AGENTS.md, das verknüpfte Issue und dessen Akzeptanzkriterien. Verwenden, wenn ein PR geprüft werden soll.
+license: MIT
+compatibility: "git. Optional: gh CLI oder GitHub-MCP, Shopify Dev MCP."
 ---
 
 # km-pr-review – PR gegen Spec und AGENTS.md prüfen

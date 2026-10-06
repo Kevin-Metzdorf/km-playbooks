@@ -31,12 +31,12 @@ copy() {
   fi
 }
 
-# Vorlagen gezielt kopieren; templates/confluence/ bleibt in km-playbooks.
+# Vorlagen gezielt kopieren; die Confluence-Vorlage bleibt im Skill km-sdd-spec.
 for f in "$ROOT"/templates/.github/ISSUE_TEMPLATE/*.yml; do
   copy "$f" "$DEST/.github/ISSUE_TEMPLATE/$(basename "$f")"
 done
 copy "$ROOT/templates/.github/pull_request_template.md" "$DEST/.github/pull_request_template.md"
-copy "$ROOT/docs/spec-vorlage.md" "$DEST/docs/specs/_vorlage.md"
+copy "$ROOT/skills/km-sdd-spec/assets/spec-vorlage.md" "$DEST/docs/specs/_vorlage.md"
 
 # Brücken für Agenten, die AGENTS.md nicht (immer) selbst lesen.
 bridge() {
@@ -62,7 +62,7 @@ if [ "$THEME_MODE" = true ]; then
 fi
 
 echo
-echo "Nicht automatisch übernommen: templates/confluence/ (Kundenseiten werden separat veröffentlicht)"
+echo "Nicht automatisch übernommen: skills/km-sdd-spec/assets/confluence-spec-seite.md (Kundenseiten werden separat veröffentlicht)"
 echo "Nicht automatisch übernommen: templates/AGENTS.sdd-section.md"
 echo "→ Abschnitt manuell in $DEST/AGENTS.md einfügen und anpassen."
 if [ ! -e "$DEST/AGENTS.md" ]; then

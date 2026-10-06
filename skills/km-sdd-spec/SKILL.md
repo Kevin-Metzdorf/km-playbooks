@@ -1,6 +1,8 @@
 ---
 name: km-sdd-spec
 description: Spec-Driven Development für Shopify-Projekte (Theme und App). Verwenden, wenn eine neue Kundenanforderung in eine Spezifikation mit testbaren Akzeptanzkriterien, offene Fragen und GitHub-Issues überführt werden soll – vor jeder Umsetzung.
+license: MIT
+compatibility: "git. Optional: gh CLI oder GitHub-MCP, Shopify Dev MCP, Atlassian MCP."
 ---
 
 # km-sdd-spec – Anforderung → Spec → Freigabe → Issues
@@ -26,7 +28,7 @@ Ziel: Aus einer losen Anforderung eine freigabefähige Spec machen. In diesem Sk
 
 ## Phase 2 – Spec schreiben
 
-Datei `docs/specs/<thema>.md` nach der Vorlage `docs/specs/_vorlage.md` (bzw. km-playbooks `docs/spec-vorlage.md`):
+Datei `docs/specs/<thema>.md` nach der Vorlage `docs/specs/_vorlage.md` im Projekt-Repo; fehlt sie, nach [assets/spec-vorlage.md](assets/spec-vorlage.md):
 
 - Ziel, Erfolg, Umfang **und Nicht-Ziele**
 - Ist-Zustand (bei Relaunch/Umbau)
@@ -42,8 +44,8 @@ Qualitätsprüfung vor Abgabe:
 
 ## Phase 3 – Klärung und Freigabe (Gate)
 
-- Nach dem Spec-Entwurf eine kundenlesbare Confluence-Seite nach `templates/confluence/spec-seite.md` erzeugen: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
-- Ist das Atlassian MCP verfügbar, die Seite direkt im Confluence-Bereich des Kunden anlegen; sonst Markdown zum Veröffentlichen ausgeben. Die Spec im Repo bleibt die Quelle, Confluence erhält eine veröffentlichte Kopie. Details: `docs/kunde.md`.
+- Nach dem Spec-Entwurf eine kundenlesbare Confluence-Seite nach [assets/confluence-spec-seite.md](assets/confluence-spec-seite.md) erzeugen: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
+- Ist das Atlassian MCP verfügbar, die Seite direkt im Confluence-Bereich des Kunden anlegen; sonst Markdown zum Veröffentlichen ausgeben. Die Spec im Repo bleibt die Quelle, Confluence erhält eine veröffentlichte Kopie. Wird die Spec geändert, die Seite neu veröffentlichen und die Version hochzählen.
 - Offene Fragen als Liste für den Kunden ausgeben, kundentauglich formuliert, ohne Fachjargon.
 - Der Kunde gibt auf der Confluence-Seite oder per Mail frei, nie im GitHub-Epic. Dort nur den Nachweis eintragen: wer, wann, welche Version und Link zur Freigabe (bei Mail zusätzlich das Mail-Datum).
 - **Stopp.** Ohne dokumentierte Freigabe (wer, wann, Version, Link im Epic) keine Issues für die Umsetzung anlegen.

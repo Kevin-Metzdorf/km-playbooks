@@ -1,6 +1,8 @@
 ---
 name: km-bugfix
 description: Schlanker SDD-Ablauf für Bugs in Shopify-Themes und -Apps – reproduzieren, Ursache finden, minimal fixen, gegen Kriterien prüfen. Verwenden, wenn ein Bug-Issue bearbeitet wird.
+license: MIT
+compatibility: "git, Shopify CLI. Optional: gh CLI oder GitHub-MCP."
 ---
 
 # km-bugfix – Bug reproduzieren und beheben
