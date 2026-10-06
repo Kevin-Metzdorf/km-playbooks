@@ -25,3 +25,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Lint shell scripts
         run: docker run --rm -v "$GITHUB_WORKSPACE:/repo" -w /repo koalaman/shellcheck:v0.10.0 scripts/*.sh
+
+  skills:
+    name: skills
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check agent skills
+        run: docker run --rm -v "$GITHUB_WORKSPACE:/repo" -w /repo ruby:3.3.12-slim bash scripts/check-skills.sh

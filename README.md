@@ -58,6 +58,7 @@ Welche Coding-Agenten unterstützt sind und was je Agent zu beachten ist (Brück
 - `AGENTS.md` des Projekt-Repos hat Vorrang vor allem hier.
 - In Kunden-Orgs mit eigenen Vorlagen: deren Vorlagen nutzen, hier nur die Skills.
 - Keine Zugangsdaten, Tokens oder Kundendaten in dieses Repo.
+- Skills ändern: vor dem Commit `./scripts/check-skills.sh` ausführen (benötigt Ruby). Die CI prüft dasselbe im Job `skills`: Frontmatter nach dem Agent-Skills-Standard, Sperrliste werkzeugspezifischer Begriffe (`scripts/skills-sperrliste.txt`), Verweise auf Dateien.
 
 ## Lizenz
 
