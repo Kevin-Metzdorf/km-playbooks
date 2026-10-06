@@ -2,14 +2,14 @@
 
 Die Playbooks sind an keinen bestimmten Agenten gebunden: Skills folgen dem offenen [Agent-Skills-Standard](https://agentskills.io/specification), Projektregeln stehen in `AGENTS.md`. Diese Seite hält fest, was je Agent zu beachten ist.
 
-**Stand:** 2026-10-06, aus der Herstellerdoku und eigenen Tests. Bei neuen Agent-Versionen prüfen und den Konformitätstest wiederholen.
+**Stand:** 2026-10-06, aus der Herstellerdoku und eigenen Tests. Bei neuen Agent-Versionen prüfen und den [Konformitätstest](agenten-test.md) wiederholen.
 
 ## Status
 
 | Agent | Status | Konformitätstest |
 |-------|--------|------------------|
-| Claude Code | Pflicht | ausstehend (#22) |
-| GitHub Copilot (CLI, VS Code) | Pflicht | ausstehend (#22) |
+| Claude Code | Pflicht | ausstehend, siehe [Konformitätstest](agenten-test.md) (#22) |
+| GitHub Copilot (CLI, VS Code) | Pflicht | ausstehend, siehe [Konformitätstest](agenten-test.md) (#22) |
 | OpenAI Codex | Skelett, ungetestet | – (CR #26) |
 | Cursor | Skelett, ungetestet | – (CR #26) |
 | Gemini CLI | Skelett, ungetestet | – (CR #26) |
