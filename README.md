@@ -48,6 +48,8 @@ Für Theme-Repos können zusätzlich die CI-Vorlagen übernommen werden:
 `./scripts/apply-templates.sh /pfad/zum/projekt-repo --theme`. Details stehen in
 [`docs/ci.md`](docs/ci.md).
 
+Mit `--skills` landen die Skills zusätzlich im Projekt-Repo (`.agents/skills/`, für Claude Code verlinkt aus `.claude/skills/`), damit Cloud-Agenten und andere Entwickler sie haben. Kombinierbar mit `--theme`.
+
 ## Regeln
 
 - `AGENTS.md` des Projekt-Repos hat Vorrang vor allem hier.
