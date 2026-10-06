@@ -32,7 +32,7 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 ## Einrichtung
 
 ```bash
-# 1. Skills global für Copilot verfügbar machen (Symlinks, Updates wirken sofort)
+# 1. Skills für alle Agenten verfügbar machen: Symlinks nach ~/.agents/skills und ~/.claude/skills (Updates wirken sofort)
 ./scripts/install-skills.sh
 
 # 2. Vorlagen in ein Projekt-Repo übernehmen (überschreibt nichts Bestehendes)
