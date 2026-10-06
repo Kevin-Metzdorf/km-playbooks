@@ -31,6 +31,7 @@ copy() {
   fi
 }
 
+# Vorlagen gezielt kopieren; templates/confluence/ bleibt in km-playbooks.
 for f in "$ROOT"/templates/.github/ISSUE_TEMPLATE/*.yml; do
   copy "$f" "$DEST/.github/ISSUE_TEMPLATE/$(basename "$f")"
 done
@@ -45,5 +46,6 @@ if [ "$THEME_MODE" = true ]; then
 fi
 
 echo
+echo "Nicht automatisch übernommen: templates/confluence/ (Kundenseiten werden separat veröffentlicht)"
 echo "Nicht automatisch übernommen: templates/AGENTS.sdd-section.md"
 echo "→ Abschnitt manuell in $DEST/AGENTS.md einfügen und anpassen."

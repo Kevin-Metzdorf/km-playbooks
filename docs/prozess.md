@@ -14,7 +14,7 @@ Jede Phase endet mit einem **Artefakt** und einem **Gate**. Erst wenn das Gate e
 |---|-------|-------|----------|------|-------|
 | 1 | Anforderung | Warum, was grob? | Epic-Issue | Ziel, Nicht-Ziele, Erfolgsmessung schriftlich | `km-sdd-spec` |
 | 2 | Spezifikation | Was genau? | `docs/specs/<thema>.md` + Feature-Issues | Jedes Kriterium mit Ja/Nein prüfbar | `km-sdd-spec` |
-| 3 | Klärung & Freigabe | Eindeutig und abgenommen? | Offene Fragen beantwortet, Freigabe im Epic | Kunde hat freigegeben | `km-sdd-spec` |
+| 3 | Klärung & Freigabe | Eindeutig und abgenommen? | Spec als Confluence-Seite veröffentlicht, offene Fragen beantwortet | Kunde hat auf der Confluence-Seite oder per Mail freigegeben (wer, wann, Version); Link im Epic eingetragen | `km-sdd-spec` |
 | 4 | Plan | Wie, in welcher Reihenfolge? | Umsetzungsplan (Plan Mode) | Jeder Schritt ↔ ein Kriterium | Situations-Skill |
 | 5 | Implementierung | Bauen | Branch + PR je Issue | CI/Theme Check grün, PR verlinkt Issue | Situations-Skill |
 | 6 | Prüfung | Erfüllt es die Spec? | Review, Abnahme | Alle Kriterien ✅ | `km-pr-review` |
@@ -53,6 +53,10 @@ Metafield-/Metaobject-Definitionen und Inhalte, Navigation, Redirects, Markets, 
 - Nie auf ein Live-Theme pushen; immer unveröffentlichtes Theme oder Dev-Store.
 - Shopify-API- und Liquid-Verhalten über das Shopify Dev MCP prüfen; API-Version nennen.
 - Keine Zugangsdaten, Tokens oder personenbezogenen Daten in Issues, Logs oder Commits.
+
+## Kunde und Confluence
+
+GitHub ist die Werkstatt, Confluence das Schaufenster. Die Spec entsteht im Repo; die kundenlesbare Kopie (Vorlage `templates/confluence/spec-seite.md`) wird im Confluence-Bereich des Kunden veröffentlicht, dort werden Fragen beantwortet und Freigaben gegeben. Details: [`docs/kunde.md`](kunde.md).
 
 ## Change Requests
 

@@ -44,4 +44,5 @@ body:
     id: freigabe
     attributes:
       label: Freigabe
-      value: "- [ ] Spec freigegeben von: ___ am: ___ (Version: ___)"
+      description: Freigabe erfolgt in Confluence oder per Mail, nicht hier. Nachweis nach Freigabe eintragen.
+      value: "- Confluence-Link oder Mail-Datum mit Link: \n- Version: \n- Freigegeben von: \n- Datum: "

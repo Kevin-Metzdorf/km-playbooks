@@ -7,6 +7,7 @@ body:
     id: spec
     attributes:
       label: Betroffene Spec / Issues
+      description: Spec-Version und zugehörige Confluence-Seite verlinken, damit die freigegebene Kundenfassung nachvollziehbar ist.
       placeholder: "docs/specs/<thema>.md v1.0 · #12"
     validations:
       required: true

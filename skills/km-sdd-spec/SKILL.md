@@ -37,8 +37,11 @@ Qualitätsprüfung vor Abgabe:
 
 ## Phase 3 – Klärung und Freigabe (Gate)
 
+- Nach dem Spec-Entwurf eine kundenlesbare Confluence-Seite nach `templates/confluence/spec-seite.md` erzeugen: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
+- Ist das Atlassian MCP verfügbar, die Seite direkt im Confluence-Bereich des Kunden anlegen; sonst Markdown zum Veröffentlichen ausgeben. Die Spec im Repo bleibt die Quelle, Confluence erhält eine veröffentlichte Kopie. Details: `docs/kunde.md`.
 - Offene Fragen als Liste für den Kunden ausgeben, kundentauglich formuliert, ohne Fachjargon.
-- **Stopp.** Ohne dokumentierte Freigabe (wer, wann, Version) keine Issues für die Umsetzung anlegen.
+- Der Kunde gibt auf der Confluence-Seite oder per Mail frei, nie im GitHub-Epic. Dort nur den Nachweis eintragen: wer, wann, welche Version und Link zur Freigabe (bei Mail zusätzlich das Mail-Datum).
+- **Stopp.** Ohne dokumentierte Freigabe (wer, wann, Version, Link im Epic) keine Issues für die Umsetzung anlegen.
 
 ## Nach der Freigabe – Issues
 

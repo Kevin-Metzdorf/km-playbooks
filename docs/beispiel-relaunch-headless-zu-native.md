@@ -101,6 +101,8 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 
 **Einfach erklärt:** Alles, was unklar ist, wird jetzt geklärt – nicht während der Umsetzung. Dann gibt der Kunde die Spec frei. Was nicht in der Spec steht, ist ein Change Request.
 
+**Kundensicht:** Die Spec bleibt im Repo; nach `templates/confluence/spec-seite.md` wird eine kundenlesbare Kopie mit derselben Versionsnummer im Confluence-Bereich des Kunden veröffentlicht. API-Versionen, Repo-Pfade und „Code vs. Admin“ bleiben intern; die Kriterien werden als „Wenn/Dann“ formuliert, ohne Voraussetzungen zu verlieren. Der Kunde beantwortet dort die Fragen und gibt die Version per Kommentar oder Mail frei – nie im GitHub-Epic. Im Epic halten wir nur fest, wer wann welche Version freigegeben hat, mit Link zum Nachweis (bei Mail zusätzlich das Mail-Datum). Details: [Kundensicht](kunde.md).
+
 **Typische offene Fragen beim Headless-Relaunch**
 - Werden alle Headless-Sonderfunktionen gebraucht oder reicht eine App?
 - Bleiben die URLs gleich? Wenn nein: Wer prüft die Redirect-Liste?
@@ -111,9 +113,9 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 
 **Artefakte**
 - Abschnitt „Offene Fragen“ in der Spec – jede Frage mit Antwort und Datum.
-- Freigabe-Kommentar des Kunden im Epic (oder schriftlich per Mail, im Epic verlinkt).
+- Freigabe-Kommentar auf der Confluence-Seite oder schriftlich per Mail; Nachweis mit Person, Datum und Version im Epic verlinkt.
 
-**Gate:** Offene Fragen = 0 (oder bewusst als Annahme markiert) und Kunde hat freigegeben.
+**Gate:** Offene Fragen = 0 (oder bewusst als Annahme markiert) und Freigabe mit Person, Datum, Version und Link im Epic dokumentiert. Erst danach Umsetzungs-Issues anlegen.
 
 ---
 
