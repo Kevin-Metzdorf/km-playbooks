@@ -4,7 +4,7 @@
 |---|---|
 | **Epic** | Kevin-Metzdorf/km-playbooks#13 |
 | **Status** | Freigegeben (am 2026-10-06 von Kevin Metzdorf) |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Bereich** | Werkzeug/Prozess |
 | **API-Version** | n/a: Agent-Skills-Standard ([agentskills.io](https://agentskills.io/specification)), `AGENTS.md` |
 
@@ -14,9 +14,10 @@ Die Playbooks (Skills, feste Regeln, Vorlagen, Start-Prompts) funktionieren mit 
 
 ## 2. Erfolg
 
-- Jeder `km-*`-Skill ist in allen fünf Pflicht-Agenten (Claude Code, GitHub Copilot, OpenAI Codex, Cursor, Gemini CLI) nach **einem** Installationsbefehl auffindbar.
+- Jeder `km-*`-Skill ist in allen Pflicht-Agenten (Claude Code, GitHub Copilot, Cursor) nach **einem** Installationsbefehl auffindbar.
+- OpenAI Codex und Gemini CLI sind als Skelett vorbereitet (Skill-Pfad, Brücke, Matrix-Eintrag), aber nicht eingerichtet und nicht getestet (CR #26).
 - Die festen Regeln greifen in jedem Pflicht-Agenten auch dann, wenn kein Skill aufgerufen wurde.
-- Der Konformitätstest (5.6) ist in allen fünf Agenten bestanden und mit Datum, Agent-Version und Modell dokumentiert.
+- Der Konformitätstest (5.8) ist in allen Pflicht-Agenten bestanden und mit Datum, Agent-Version und Modell dokumentiert.
 - Die Playbook-CI verhindert, dass werkzeugspezifische Begriffe oder ungültige Skill-Metadaten wieder hineinkommen.
 
 ## 3. Umfang
@@ -30,7 +31,7 @@ Die Playbooks (Skills, feste Regeln, Vorlagen, Start-Prompts) funktionieren mit 
 - Kompatibilitätsmatrix `docs/agenten.md`
 - Neutrale Doku: README, `docs/prozess.md`, `docs/prompts.md`, Beispiel-Dokument
 - CI: Skill-Validierung und Sperrliste für werkzeugspezifische Begriffe
-- Konformitätstest `docs/agenten-test.md` mit festen Szenarien, durchgeführt in allen fünf Agenten
+- Konformitätstest `docs/agenten-test.md` mit festen Szenarien, durchgeführt in den Pflicht-Agenten
 - Pilot: ein echtes Issue in `km-cookstack` mit einem anderen Agenten als Copilot
 
 **Nicht enthalten (Nicht-Ziele)**
@@ -42,6 +43,7 @@ Die Playbooks (Skills, feste Regeln, Vorlagen, Start-Prompts) funktionieren mit 
 - Keine Änderung an freigegebenen Specs (`docs/specs/theme-ci.md` bleibt historisch)
 - Kein Rollout in bestehende Projekt-Repos in diesem Epic; folgt als eigene Issues
 - Keine agentenspezifischen Zusatzdateien (z. B. `agents/openai.yaml`) oder Frontmatter-Felder außerhalb des Standards
+- Codex und Gemini CLI werden nicht eingerichtet und nicht getestet; sie bleiben als Skelett (CR #26)
 
 ## 4. Ist-Zustand
 
@@ -72,7 +74,7 @@ Die Playbooks (Skills, feste Regeln, Vorlagen, Start-Prompts) funktionieren mit 
 | Cursor | `~/.agents/skills`, `~/.cursor/skills`; zur Kompatibilität auch `~/.claude/skills`, `~/.codex/skills` | `.agents/skills`, `.cursor/skills`; auch `.claude/skills`, `.codex/skills` | nativ |
 | Gemini CLI | `~/.gemini/skills`, `~/.agents/skills` | `.gemini/skills`, `.agents/skills` | nur per `context.fileName` oder `GEMINI.md` mit `@./AGENTS.md` |
 
-Lokal installiert (Kevin, 2026-10-06): Claude Code CLI 2.1.272 (vor 2.1.277, liest `AGENTS.md` also nicht nativ), Copilot CLI 1.0.90, Gemini CLI 0.41.2, Codex CLI; Cursor nicht installiert.
+Lokal installiert (Kevin, 2026-10-06): Claude Code CLI 2.1.272 (vor 2.1.277, liest `AGENTS.md` also nicht nativ), Copilot CLI 1.0.90, Gemini CLI 0.41.2 (Anmeldung abgelehnt: `IneligibleTierError`), Codex CLI (Installation defekt); Cursor nicht installiert.
 
 Folgerungen:
 - `~/.agents/skills` (Copilot, Codex, Cursor, Gemini) und `~/.claude/skills` (Claude Code) decken alle fünf Agenten ab. Copilot CLI liest davon nur `~/.agents/skills`. Cursor liest beide Pfade und könnte die Skills doppelt zeigen; beide Links zeigen auf denselben Ordner (Prüfung in T1).
@@ -135,7 +137,7 @@ Issue: #18
 
 Issue: #19
 
-- [ ] **AK-6.1** `docs/agenten.md` enthält je Agent: Skill-Pfade, `AGENTS.md`-Unterstützung bzw. Brücke, Plan-Funktion, Rückfrage-Funktion, MCP-Konfiguration (nur Verweis auf Herstellerdoku, keine Tokens), expliziter Skill-Aufruf; mit Stand-Datum und Quellen.
+- [ ] **AK-6.1** `docs/agenten.md` enthält je Agent: Status (Pflicht, getestet · Skelett, ungetestet), Skill-Pfade, `AGENTS.md`-Unterstützung bzw. Brücke, Plan-Funktion, Rückfrage-Funktion, MCP-Konfiguration (nur Verweis auf Herstellerdoku, keine Tokens), expliziter Skill-Aufruf; mit Stand-Datum und Quellen.
 - [ ] **AK-6.2** README spricht von „Agent-Skills“ und beschreibt die Einrichtung unabhängig vom Werkzeug, mit Verweis auf `docs/agenten.md`.
 - [ ] **AK-6.3** `docs/prozess.md`, `docs/prompts.md` und das Beispiel-Dokument nennen keinen bestimmten Agenten; „Plan Mode“ ist durch das Verhalten ersetzt; die Ich-Form aus Sicht von Copilot ist neutral formuliert.
 - [ ] **AK-6.4** Die Start-Prompts in `docs/prompts.md` funktionieren in jedem Pflicht-Agenten unverändert (Konformitätstest T2–T4).
@@ -162,7 +164,7 @@ Issue: #21 (Dokument), #22 (Durchführung, `admin-task`)
   - **T6 MCP fehlt:** Fallback und Kennzeichnung „ungeprüft“ statt Raten.
   - **T7 Review:** `km-pr-review` liefert das definierte Ausgabeformat (Ergebnis, Kriterientabelle, Befunde, Fragen).
 - [ ] **AK-8.2** Ergebnis-Tabelle Agent × Test mit Datum, Agent-Version und Modell.
-- [ ] **AK-8.3** Alle Tests sind in allen fünf Pflicht-Agenten bestanden.
+- [ ] **AK-8.3** Alle Tests sind in allen Pflicht-Agenten (Claude Code, Copilot, Cursor) bestanden; Codex und Gemini CLI stehen in der Ergebnis-Tabelle als „nicht getestet (Skelett)“.
 - [ ] **AK-8.4** Copilot besteht alle Tests weiterhin (Regression).
 
 ### 5.9 Pilot
@@ -181,7 +183,7 @@ Issue: Kevin-Metzdorf/km-cookstack#52 (abhängig von #14–#21)
 
 | Im Repo | Außerhalb des Repos (`admin-task`) |
 |---------|------------------------------------|
-| Skills, Skripte, Vorlagen, Doku, Playbook-CI | Fünf Pflicht-Agenten installieren und anmelden |
+| Skills, Skripte, Vorlagen, Doku, Playbook-CI | Pflicht-Agenten (Claude Code, Copilot, Cursor) installieren und anmelden |
 | Kompatibilitätsmatrix, Konformitätstest | MCP-Server je Agent einrichten (Shopify Dev MCP, Atlassian, GitHub) |
 | | Konformitätstest je Agent ausführen und Ergebnis eintragen |
 
@@ -193,17 +195,19 @@ Issue: Kevin-Metzdorf/km-cookstack#52 (abhängig von #14–#21)
 - **Versionsdrift bei Kopien im Projekt-Repo** (5.5): Kopien veralten. Gegenmaßnahme: Versionsvermerk; `apply-templates.sh` meldet Abweichungen.
 - **Symlinks:** Codex und Claude Code folgen Symlinks laut Doku (Claude Code lädt denselben Zielordner nur einmal), Copilot in der Praxis. Für Cursor und Gemini CLI im Konformitätstest T1 prüfen.
 - **Persönliche Skills fehlen in Cloud-Sitzungen** (Claude Code im Web, Copilot Coding Agent, Codex Cloud). Gegenmaßnahme: 5.5.
+- **Skelett ungetestet:** Die Unterstützung von Codex und Gemini CLI beruht nur auf Herstellerdoku und kann unbemerkt veralten. Vor einer späteren Einrichtung den Konformitätstest nachholen.
 - **Verschobene Vorlagen:** Bestehende Projekt-Repos und Gewohnheiten verweisen auf `docs/spec-vorlage.md`. Gegenmaßnahme: Hinweis in README; Projekt-Repos haben ihre Kopie unter `docs/specs/_vorlage.md` und sind nicht betroffen.
 
 ## 8. Offene Fragen
 
 | # | Frage | Antwort | Wer / Datum |
 |---|-------|---------|-------------|
-| 1 | Welche Agenten sind Pflicht (Konformitätstest muss bestehen)? | Alle fünf: Claude Code, Copilot, Codex, Cursor, Gemini CLI | Kevin / 2026-10-06 |
+| 1 | Welche Agenten sind Pflicht (Konformitätstest muss bestehen)? | Alle fünf: Claude Code, Copilot, Codex, Cursor, Gemini CLI. Geändert durch Frage 6 | Kevin / 2026-10-06 |
 | 2 | Sollen Skills zusätzlich ins Projekt-Repo übernommen werden? | Ja, optional per `--skills` (5.5) | Kevin / 2026-10-06 |
 | 3 | Vorlagen in den Skill-Ordner verschieben oder kopieren? | Verschieben (AK-2.2) | Kevin / 2026-10-06 |
 | 4 | Alte Symlinks in `~/.copilot/skills` automatisch entfernen? | Ja, nur Symlinks auf km-playbooks (AK-3.3) | Kevin / 2026-10-06 |
 | 5 | Harte Regeln zusätzlich technisch absichern (CI-Check, Hooks)? | Ja, als eigenes Issue nach diesem Epic (#23) | Kevin / 2026-10-06 |
+| 6 | Codex und Gemini CLI jetzt einrichten? (Codex-CLI defekt, Gemini-CLI-Anmeldung abgelehnt) | Nein, vorerst nur Skelett; Pflicht sind Claude Code, Copilot, Cursor (CR #26) | Kevin / 2026-10-06 |
 
 ## 9. Annahmen
 
@@ -220,3 +224,4 @@ Issue: Kevin-Metzdorf/km-cookstack#52 (abhängig von #14–#21)
 | 0.2 | 2026-10-06 | Fragen 1–5 beantwortet: fünf Pflicht-Agenten, Skills ins Projekt-Repo (5.5), Vorlagen verschieben, alte Copilot-Links entfernen, technische Absicherung als Folge-Issue. Gemini-Brücke `GEMINI.md`; Playbook-CI als eigener Abschnitt (5.7) |
 | 1.0 | 2026-10-06 | Freigegeben von Kevin Metzdorf; Issues angelegt |
 | 1.1 | 2026-10-06 | Korrektur Ist-Zustand und Risiken: Copilot CLI liest `~/.claude/skills` nicht; Cursor liest zusätzlich `~/.claude/skills` und `~/.codex/skills`; lokale Agent-Versionen ergänzt. Umfang und Kriterien unverändert |
+| 1.2 | 2026-10-06 | CR #26: Codex und Gemini CLI nur als Skelett; Pflicht-Agenten Claude Code, Copilot, Cursor (Erfolg, Umfang, AK-6.1, AK-8.3, Abschnitt 6, Risiken, Frage 6) |
