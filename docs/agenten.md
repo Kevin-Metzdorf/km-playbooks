@@ -9,7 +9,8 @@ Die Playbooks sind an keinen bestimmten Agenten gebunden: Skills folgen dem offe
 | Agent | Status | Konformitätstest |
 |-------|--------|------------------|
 | Claude Code | Pflicht | ausstehend, siehe [Konformitätstest](agenten-test.md) (#22) |
-| GitHub Copilot (CLI, VS Code) | Pflicht | ausstehend, siehe [Konformitätstest](agenten-test.md) (#22) |
+| GitHub Copilot CLI | Pflicht | ausstehend, siehe [Konformitätstest](agenten-test.md) (#22) |
+| GitHub Copilot in der IDE (VS Code u. a.) | Skelett, ungetestet | – (CR #33) |
 | OpenAI Codex | Skelett, ungetestet | – (CR #26) |
 | Cursor | Skelett, ungetestet | – (CR #26) |
 | Gemini CLI | Skelett, ungetestet | – (CR #26) |

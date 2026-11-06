@@ -6,7 +6,7 @@
 | **Status** | Entwurf · Wartet auf Freigabe · Freigegeben (am JJJJ-MM-TT von <Name>) |
 | **Version** | 0.1 |
 | **Bereich** | Theme · App · beides |
-| **API-Version** | z. B. Admin GraphQL 2026-07 (nur falls relevant) |
+| **API-Version** | z. B. Admin GraphQL 2026-10 — jeweils die aktuelle stabile Version prüfen (nur falls relevant) |
 
 ## 1. Ziel
 

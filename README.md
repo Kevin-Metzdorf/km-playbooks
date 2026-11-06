@@ -30,6 +30,8 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 | `km-app-feature` | Feature in einer Shopify-App (React Router, Admin GraphQL, Extensions) |
 | `km-bugfix` | Schlanker Ablauf für Bugs und kleine Änderungen |
 | `km-pr-review` | PR-Review gegen AGENTS.md und Akzeptanzkriterien |
+| `km-tech-analysis` | Aufgabe vor der Umsetzung per Expertenblick schärfen: Methoden, Rohmaterial, Werkzeuge und Prüfinstanzen in die Aufgabenstellung einarbeiten (automatisch beim Schärfen von Aufgaben, auch manuell per `/km-tech-analysis`) |
+| `km-change-request` | Kundenwunsch gegen freigegebene Spec: CR prüfen, Aufwand/Termin bewerten, CR-Issue + Freigabe, Spec aktualisieren |
 
 ## Einrichtung
 

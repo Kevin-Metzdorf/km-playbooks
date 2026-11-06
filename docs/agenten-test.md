@@ -40,7 +40,7 @@ Ein Test ist bestanden (✅), wenn alle Kriterien „Ja“ sind; sonst ❌ mit k
 |-------|-------------|
 | Claude Code | `/skills` |
 | GitHub Copilot CLI | `copilot skill list` im Test-Repo oder `/skills list` in der Sitzung |
-| GitHub Copilot in VS Code | im Chat `/` eingeben; VS Code liest zusätzlich `~/.claude/skills` |
+| GitHub Copilot in VS Code (Skelett, CR #33) | im Chat `/` eingeben; VS Code liest zusätzlich `~/.claude/skills` |
 
 **Ja/Nein:**
 
@@ -64,7 +64,7 @@ Erstelle Epic, Spec-Entwurf unter docs/specs/trust-badges.md und die offenen Fra
 **Ja/Nein:**
 
 1. `docs/specs/trust-badges.md` existiert und folgt der Vorlage (Ziel bis Änderungshistorie, inklusive „Code vs. Shopify Admin“).
-2. Jedes Akzeptanzkriterium hat eine ID (`AK-…`) und die Form Gegeben/Wenn/Dann.
+2. Jedes Akzeptanzkriterium hat eine ID (`AK-…`). Feature-Kriterien haben die Form Gegeben/Wenn/Dann; Querschnitts- und Theme-Editor-Punkte sind wie in der Spec-Vorlage als Ja/Nein-prüfbare Aussage formuliert.
 3. Offene Fragen und Annahmen sind aufgeführt.
 4. `git status` zeigt nur `docs/specs/trust-badges.md`; kein Code.
 5. Kein Issue angelegt; das Epic steht nur als Text in der Antwort (ohne GitHub).
@@ -136,7 +136,7 @@ Fragt der Agent nach dem Issue (kein GitHub), den Inhalt von `test/issue-12.md` 
 |-------|-------|
 | Claude Code | `claude --strict-mcp-config` (lädt keine MCP-Server) |
 | GitHub Copilot CLI | `copilot --disable-mcp-server shopify-dev-mcp` (Name des Servers laut `~/.copilot/mcp-config.json`) |
-| GitHub Copilot in VS Code | Shopify-MCP-Server in der MCP-Ansicht deaktivieren |
+| GitHub Copilot in VS Code (Skelett, CR #33) | Shopify-MCP-Server in der MCP-Ansicht deaktivieren |
 
 **Prompt:**
 
@@ -178,7 +178,7 @@ Fragt der Agent nach dem PR, antworten: „Kein GitHub. Branch feature/badges ge
 |-------|--------|-------|---------------|--------|----|----|----|----|--------|----|----|-----------|
 | Claude Code | Pflicht | | | | | | | | | | | |
 | GitHub Copilot CLI | Pflicht | | | | | | | | | | | |
-| GitHub Copilot in VS Code | Pflicht | | | | | | | | | | | |
+| GitHub Copilot in der IDE (VS Code u. a.) | Skelett | – | – | – | nicht getestet (CR #33) | | | | | | | |
 | OpenAI Codex | Skelett | – | – | – | nicht getestet (CR #26) | | | | | | | |
 | Cursor | Skelett | – | – | – | nicht getestet (CR #26) | | | | | | | |
 | Gemini CLI | Skelett | – | – | – | nicht getestet (CR #26) | | | | | | | |

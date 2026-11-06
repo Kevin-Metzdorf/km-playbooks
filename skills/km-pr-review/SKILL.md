@@ -32,6 +32,12 @@ compatibility: "git. Optional: gh CLI oder GitHub-MCP, Shopify Dev MCP."
 
 Keine Stil-Kleinigkeiten melden, die ein Linter abdeckt.
 
+## Feste Regeln
+
+- `AGENTS.md` des Repos hat Vorrang vor diesem Skill.
+- Review ist lesend — keine Änderungen am Code ohne Freigabe des Autors.
+- Nie Ungeprüftes als geprüft kennzeichnen; keine Zugangsdaten, Tokens oder personenbezogenen Daten im Review.
+
 ## Ausgabe
 
 1. Ergebnis in einem Satz: mergebar / mit Änderungen / blockiert
