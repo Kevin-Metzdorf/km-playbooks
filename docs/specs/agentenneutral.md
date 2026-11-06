@@ -4,7 +4,7 @@
 |---|---|
 | **Epic** | Kevin-Metzdorf/km-playbooks#13 |
 | **Status** | Freigegeben (am 2026-10-06 von Kevin Metzdorf) |
-| **Version** | 1.3 |
+| **Version** | 1.4 |
 | **Bereich** | Werkzeug/Prozess |
 | **API-Version** | n/a: Agent-Skills-Standard ([agentskills.io](https://agentskills.io/specification)), `AGENTS.md` |
 
@@ -14,8 +14,8 @@ Die Playbooks (Skills, feste Regeln, Vorlagen, Start-Prompts) funktionieren mit 
 
 ## 2. Erfolg
 
-- Jeder `km-*`-Skill ist in allen Pflicht-Agenten (Claude Code, GitHub Copilot) nach **einem** Installationsbefehl auffindbar.
-- OpenAI Codex, Gemini CLI und Cursor sind als Skelett vorbereitet (Skill-Pfad, Brücke, Matrix-Eintrag), aber nicht eingerichtet und nicht getestet (CR #26).
+- Jeder `km-*`-Skill ist in allen Pflicht-Agenten (Claude Code, GitHub Copilot CLI) nach **einem** Installationsbefehl auffindbar.
+- OpenAI Codex, Gemini CLI, Cursor und Copilot in der IDE sind als Skelett vorbereitet (Skill-Pfad, Brücke, Matrix-Eintrag), aber nicht eingerichtet und nicht getestet (CR #26, CR #33).
 - Die festen Regeln greifen in jedem Pflicht-Agenten auch dann, wenn kein Skill aufgerufen wurde.
 - Der Konformitätstest (5.8) ist in allen Pflicht-Agenten bestanden und mit Datum, Agent-Version und Modell dokumentiert.
 - Die Playbook-CI verhindert, dass werkzeugspezifische Begriffe oder ungültige Skill-Metadaten wieder hineinkommen.
@@ -43,7 +43,7 @@ Die Playbooks (Skills, feste Regeln, Vorlagen, Start-Prompts) funktionieren mit 
 - Keine Änderung an freigegebenen Specs (`docs/specs/theme-ci.md` bleibt historisch)
 - Kein Rollout in bestehende Projekt-Repos in diesem Epic; folgt als eigene Issues
 - Keine agentenspezifischen Zusatzdateien (z. B. `agents/openai.yaml`) oder Frontmatter-Felder außerhalb des Standards
-- Codex, Gemini CLI und Cursor werden nicht eingerichtet und nicht getestet; sie bleiben als Skelett (CR #26)
+- Codex, Gemini CLI, Cursor und Copilot in der IDE werden nicht eingerichtet und nicht getestet; sie bleiben als Skelett (CR #26, CR #33)
 
 ## 4. Ist-Zustand
 
@@ -164,7 +164,7 @@ Issue: #21 (Dokument), #22 (Durchführung, `admin-task`)
   - **T6 MCP fehlt:** Fallback und Kennzeichnung „ungeprüft“ statt Raten.
   - **T7 Review:** `km-pr-review` liefert das definierte Ausgabeformat (Ergebnis, Kriterientabelle, Befunde, Fragen).
 - [ ] **AK-8.2** Ergebnis-Tabelle Agent × Test mit Datum, Agent-Version und Modell.
-- [ ] **AK-8.3** Alle Tests sind in allen Pflicht-Agenten (Claude Code, Copilot) bestanden; Codex, Gemini CLI und Cursor stehen in der Ergebnis-Tabelle als „nicht getestet (Skelett)“.
+- [ ] **AK-8.3** Alle Tests sind in allen Pflicht-Agenten (Claude Code, Copilot CLI) bestanden; Codex, Gemini CLI, Cursor und Copilot in der IDE stehen in der Ergebnis-Tabelle als „nicht getestet (Skelett)“.
 - [ ] **AK-8.4** Copilot besteht alle Tests weiterhin (Regression).
 
 ### 5.9 Pilot
@@ -183,7 +183,7 @@ Issue: Kevin-Metzdorf/km-cookstack#52 (abhängig von #14–#21)
 
 | Im Repo | Außerhalb des Repos (`admin-task`) |
 |---------|------------------------------------|
-| Skills, Skripte, Vorlagen, Doku, Playbook-CI | Pflicht-Agenten (Claude Code, Copilot) installieren und anmelden |
+| Skills, Skripte, Vorlagen, Doku, Playbook-CI | Pflicht-Agenten (Claude Code, Copilot CLI) installieren und anmelden |
 | Kompatibilitätsmatrix, Konformitätstest | MCP-Server je Agent einrichten (Shopify Dev MCP, Atlassian, GitHub) |
 | | Konformitätstest je Agent ausführen und Ergebnis eintragen |
 
@@ -209,6 +209,7 @@ Issue: Kevin-Metzdorf/km-cookstack#52 (abhängig von #14–#21)
 | 5 | Harte Regeln zusätzlich technisch absichern (CI-Check, Hooks)? | Ja, als eigenes Issue nach diesem Epic (#23) | Kevin / 2026-10-06 |
 | 6 | Codex und Gemini CLI jetzt einrichten? (Codex-CLI defekt, Gemini-CLI-Anmeldung abgelehnt) | Nein, vorerst nur Skelett (CR #26). Geändert durch Frage 7 | Kevin / 2026-10-06 |
 | 7 | Cursor einrichten? (lokal nicht installiert) | Nein, ebenfalls nur Skelett; Pflicht sind Claude Code und Copilot (CR #26) | Kevin / 2026-10-06 |
+| 8 | Copilot in der IDE testen? (in VS Code keine Copilot-Erweiterung eingerichtet) | Nein, ebenfalls nur Skelett; Pflicht sind Claude Code und Copilot CLI (CR #33) | Kevin / 2026-10-06 |
 
 ## 9. Annahmen
 
@@ -227,3 +228,4 @@ Issue: Kevin-Metzdorf/km-cookstack#52 (abhängig von #14–#21)
 | 1.1 | 2026-10-06 | Korrektur Ist-Zustand und Risiken: Copilot CLI liest `~/.claude/skills` nicht; Cursor liest zusätzlich `~/.claude/skills` und `~/.codex/skills`; lokale Agent-Versionen ergänzt. Umfang und Kriterien unverändert |
 | 1.2 | 2026-10-06 | CR #26: Codex und Gemini CLI nur als Skelett; Pflicht-Agenten Claude Code, Copilot, Cursor (Erfolg, Umfang, AK-6.1, AK-8.3, Abschnitt 6, Risiken, Frage 6) |
 | 1.3 | 2026-10-06 | CR #26 erweitert: Cursor ebenfalls nur als Skelett; Pflicht-Agenten Claude Code und Copilot (Erfolg, Umfang, AK-8.3, Abschnitt 6, Risiken, Frage 7) |
+| 1.4 | 2026-10-06 | CR #33: Copilot in der IDE nur als Skelett; Pflicht-Agenten Claude Code und Copilot CLI (Erfolg, Umfang, AK-8.3, Abschnitt 6, Frage 8) |

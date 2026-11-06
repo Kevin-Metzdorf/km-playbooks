@@ -149,7 +149,7 @@ EOF
 cat > "$Z/test/issue-12.md" <<'EOF'
 # Issue #12: Section „Trust Badges“
 
-Status: freigegeben (Spec docs/specs/trust-badges.md v1.0, freigegeben von Testshop GmbH am 2026-10-01)
+Status: freigegeben per Mail von Testshop GmbH am 2026-10-01 (neue Section, schlanker Ablauf: Feature-Issue mit Kriterien, keine eigene Spec)
 
 ## Akzeptanzkriterien
 
