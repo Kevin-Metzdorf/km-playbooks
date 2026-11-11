@@ -44,10 +44,10 @@ Qualitätsprüfung vor Abgabe:
 
 ## Phase 3 – Klärung und Freigabe (Gate)
 
-- Nach dem Spec-Entwurf eine kundenlesbare Kundenfassung erzeugen, wenn eine gebraucht wird: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
-- Die Kundenfassung ist optional: Nutzt der Kunde Confluence, die Seite nach [assets/confluence-spec-seite.md](assets/confluence-spec-seite.md) erzeugen (mit Atlassian MCP direkt anlegen, sonst Markdown zum Veröffentlichen ausgeben); nutzt er es nicht, dieselbe Kundenfassung als Markdown oder PDF per Mail senden.
+- Nach dem Spec-Entwurf eine kundenlesbare Kundenfassung erzeugen: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
+- Der Kanal ist optional: Nutzt der Kunde Confluence, die Seite nach [assets/confluence-spec-seite.md](assets/confluence-spec-seite.md) erzeugen (mit Atlassian MCP direkt anlegen, sonst Markdown zum Veröffentlichen ausgeben); nutzt er es nicht, dieselbe Kundenfassung als Markdown oder PDF per Mail senden.
 - Offene Fragen als Liste für den Kunden ausgeben, kundentauglich formuliert, ohne Fachjargon.
-- Freigabe per Mail, als Kommentar auf der Kundenfassung oder in Confluence – nie im GitHub-Epic selbst. Im Epic nur den Nachweis eintragen: wer, wann, welche Version und Beleg (Mail-Datum, Link bzw. Confluence-Link). Confluence ist dafür nicht nötig.
+- Freigabe per Mail, als Kommentar auf der Kundenfassung oder in Confluence – nie im GitHub-Epic selbst. Im Epic den Freigabe-Nachweis eintragen: wer, wann, welche Version und Beleg (Mail-Datum, Link bzw. Confluence-Link); der vollständige Spec-Text kommt nach der Freigabe ebenfalls ins Epic (siehe unten). Confluence ist dafür nicht nötig.
 - **Stopp.** Ohne dokumentierte Freigabe (wer, wann, Version, Beleg im Epic) keine Issues für die Umsetzung anlegen.
 
 ## Nach der Freigabe – Issues
