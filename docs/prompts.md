@@ -23,6 +23,9 @@ Datei kundenfassung-<thema>-v<x>.md, Titel
 gh gist create --secret --desc "<Titel>" kundenfassung-<thema>-v<x>.md
 Link und Stand ins Epic #<nr> als Freigabe-Beleg eintragen. Kein public Gist.
 Ohne gh: Markdown und die Schritte zum Anlegen ausgeben. Noch keine Umsetzungs-Issues anlegen.
+Komfort im km-playbooks-Checkout: ./scripts/publish-kundenfassung.sh \
+  --kunde "<Kunde/Projekt>" --thema "<Thema>" --version <x> --datei <pfad.md>
+(prüft die EXTERN-Regeln, legt den secret Gist an und gibt die URL aus).
 ```
 
 ## Kunden-Update als Gist (Audit, offene Punkte, Status)
