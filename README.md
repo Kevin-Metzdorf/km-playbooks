@@ -48,15 +48,25 @@ GitHub Issues sind der sichtbare SDD-Ablauf: Das Epic-Issue trägt die freigegeb
 
 # 3. Labels im Projekt-Repo anlegen/aktualisieren (benötigt gh CLI, eingeloggt)
 ./scripts/sync-labels.sh owner/repo
-
-# 4. Kundenfassung als secret Gist veröffentlichen (prüft vorher die EXTERN-Regeln;
-#    ohne --dry-run wird der Gist direkt angelegt und die URL ausgegeben)
-./scripts/publish-kundenfassung.sh \
-  --kunde "De Berkel" --thema "Barrierefreiheits-Audit" --version 1.0 \
-  --datei pfad/zur/kundenfassung.md --dry-run
 ```
 
 Danach im Projekt-Repo den Abschnitt aus `templates/AGENTS.sdd-section.md` in die `AGENTS.md` übernehmen und auf das Projekt anpassen. `CLAUDE.md` und `GEMINI.md` (legt `apply-templates.sh` an) binden `AGENTS.md` nur ein; Regeln werden ausschließlich in `AGENTS.md` gepflegt.
+
+## Kundenfassung als Gist veröffentlichen
+
+Die Kundenfassung (Markdown) geht als **secret** Gist zum Kunden; das Skript prüft vorher die EXTERN-Regeln
+(keine API-Versionen, Repo-Pfade, „Code vs. Admin“, AK-IDs, interne Aufwände, Zugangsdaten) und gibt die URL aus.
+
+```bash
+./scripts/publish-kundenfassung.sh \
+  --kunde "De Berkel" --thema "Barrierefreiheits-Audit" --version 1.0 \
+  --datei pfad/zur/kundenfassung.md --dry-run
+# ohne --dry-run: prüft die EXTERN-Regeln, legt den secret Gist an und gibt die URL aus
+```
+
+Preise, Verträge und personenbezogene Daten prüft das Skript nicht – das bleibt eine bewusste Entscheidung
+(dafür PDF/Mail oder der Confluence-Bereich des Kunden). Danach Gist-URL und Stand/Revision im Epic als
+Freigabe-Beleg eintragen.
 
 Für Theme-Repos können zusätzlich die CI-Vorlagen übernommen werden:
 `./scripts/apply-templates.sh /pfad/zum/projekt-repo --theme`. Details stehen in
