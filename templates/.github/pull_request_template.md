@@ -18,6 +18,15 @@ Closes #
 - Geprüft auf: <!-- Geräte / Breakpoints / Browser -->
 - Screenshots / Video:
 
+## Review
+
+<!-- Ergebnis des Reviews nach `km-pr-review`. Review durch Mensch oder Agent genügt – kein bestimmter Agent und kein Bot wird vorausgesetzt. -->
+
+- Reviewer (Mensch oder Agent):
+- Ergebnis: mergebar / mit Änderungen / blockiert
+- Datum:
+- Review-Kommentar / -Link:
+
 ## Checkliste
 
 - [ ] Konventionen und Definition of Done aus `AGENTS.md` eingehalten

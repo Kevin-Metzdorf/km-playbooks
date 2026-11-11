@@ -17,6 +17,8 @@ Die Playbooks sind an keinen bestimmten Agenten gebunden: Skills folgen dem offe
 
 **Pflicht:** Der Konformitätstest muss bestehen. **Skelett:** Pfade, Brücken und dieser Eintrag sind vorbereitet; der Agent ist weder eingerichtet noch getestet. Die Angaben beruhen nur auf der Herstellerdoku.
 
+Für den Prozess ist kein bestimmter Agent Pflicht; die Tabelle zeigt den Teststand (Spalte „Konformitätstest“; „Pflicht“ in der Statusspalte heißt: muss den Konformitätstest bestehen). Eine feste Review-Rolle hat keiner – das Review übernimmt Kevin oder ein beliebiger Agent.
+
 ## Einrichtung
 
 1. Skills persönlich installieren: `./scripts/install-skills.sh` verlinkt nach `~/.agents/skills` und `~/.claude/skills`. Damit finden alle Agenten unten die Skills.

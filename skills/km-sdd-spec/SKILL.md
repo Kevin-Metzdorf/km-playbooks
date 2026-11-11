@@ -2,7 +2,7 @@
 name: km-sdd-spec
 description: Spec-Driven Development für Shopify-Projekte (Theme und App). Verwenden, wenn eine neue Kundenanforderung in eine Spezifikation mit testbaren Akzeptanzkriterien, offene Fragen und GitHub-Issues überführt werden soll – vor jeder Umsetzung.
 license: MIT
-compatibility: "git. Optional: gh CLI oder GitHub-MCP, Shopify Dev MCP, Atlassian MCP."
+compatibility: "git. Optional: gh CLI (Issues, Gist) oder GitHub-MCP, Shopify Dev MCP, Atlassian MCP."
 ---
 
 # km-sdd-spec – Anforderung → Spec → Freigabe → Issues
@@ -12,7 +12,7 @@ Ziel: Aus einer losen Anforderung eine freigabefähige Spec machen. In diesem Sk
 ## Werkzeuge
 
 - **Shopify-Prüfung:** über das Shopify Dev MCP. Ist es nicht verfügbar: installierte Shopify-Skills (z. B. `shopify-liquid`, `shopify-admin`) oder shopify.dev. Nicht Geprüftes als „ungeprüft“ kennzeichnen, nie aus dem Gedächtnis.
-- **GitHub (Issues, PRs, Project):** über `gh` CLI oder ein GitHub-MCP. Ist keins verfügbar: benötigte Inhalte beim Nutzer erfragen, Texte zum Anlegen als Markdown ausgeben und die manuellen Schritte nennen.
+- **GitHub (Issues, PRs, Project, Gist):** über `gh` CLI oder ein GitHub-MCP. Gist braucht `gh` oder Handarbeit. Ist keins verfügbar: benötigte Inhalte beim Nutzer erfragen, Texte zum Anlegen als Markdown ausgeben und die manuellen Schritte nennen.
 
 ## Vorab
 
@@ -44,16 +44,18 @@ Qualitätsprüfung vor Abgabe:
 
 ## Phase 3 – Klärung und Freigabe (Gate)
 
-- Nach dem Spec-Entwurf eine kundenlesbare Confluence-Seite nach [assets/confluence-spec-seite.md](assets/confluence-spec-seite.md) erzeugen: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
-- Ist das Atlassian MCP verfügbar, die Seite direkt im Confluence-Bereich des Kunden anlegen; sonst Markdown zum Veröffentlichen ausgeben. Die Spec im Repo bleibt die Quelle, Confluence erhält eine veröffentlichte Kopie. Wird die Spec geändert, die Seite neu veröffentlichen und die Version hochzählen.
+- Nach dem Spec-Entwurf eine kundenlesbare Kundenfassung erzeugen: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
+- Veröffentlichung als **secret Gist** (Standard): Datei `kundenfassung-<thema>-v<x>.md`, Titel `<Kunde/Projekt> – <Thema> · Stand <JJJJ-MM-TT> · v<Version>`, `gh gist create --secret --desc "<Titel>" <datei>`. Kein public Gist. Optional Confluence: Nutzt der Kunde Confluence, die Seite nach [assets/confluence-spec-seite.md](assets/confluence-spec-seite.md) erzeugen (mit Atlassian MCP direkt anlegen); sonst reicht der Gist mit Mail-Link.
 - Offene Fragen als Liste für den Kunden ausgeben, kundentauglich formuliert, ohne Fachjargon.
-- Der Kunde gibt auf der Confluence-Seite oder per Mail frei, nie im GitHub-Epic. Dort nur den Nachweis eintragen: wer, wann, welche Version und Link zur Freigabe (bei Mail zusätzlich das Mail-Datum).
-- **Stopp.** Ohne dokumentierte Freigabe (wer, wann, Version, Link im Epic) keine Issues für die Umsetzung anlegen.
+- Freigabe per Mail, als Kommentar auf der Kundenfassung oder in Confluence – nie im GitHub-Epic selbst. Im Epic den Freigabe-Nachweis eintragen: wer, wann, welche Version und Beleg (Gist-URL + Stand/Revision, Mail-Datum oder Confluence-Link); der vollständige Spec-Text kommt nach der Freigabe ebenfalls ins Epic (siehe unten). Confluence ist dafür nicht nötig.
+- Gist-Regeln: secret, nie public; keine Preise, Verträge, personenbezogenen Daten oder Daten anderer Kunden im Gist (dafür PDF/Mail oder Kunden-Confluence); Gist nicht löschen, solange er als Freigabe-Nachweis dient. Der Gist ist Kopie, nie Quelle.
+- **Stopp.** Ohne dokumentierte Freigabe (wer, wann, Version, Beleg im Epic) keine Issues für die Umsetzung anlegen.
 
 ## Nach der Freigabe – Issues
 
-- Ein Epic (Vorlage `Epic`) mit Verweis auf die Spec.
-- Pro abgrenzbarem Arbeitspaket ein `feature`-Issue mit den zugehörigen Kriterien-IDs, so geschnitten, dass ein PR reicht.
+- **Zuerst** das Epic (Vorlage `Epic`) anlegen oder aktualisieren: vollständiger Spec-Text (Abschnitte 1–10) aus `docs/specs/<thema>.md`, dazu Version und Link zum Dateipfad.
+- Die Spec-Datei bleibt die Quelle, das Epic ist die sichtbare Kopie – keine zwei Quellen. Bei einer Versionsänderung den Spec-Text im Epic mit derselben Version aktualisieren.
+- Danach pro abgrenzbarem Arbeitspaket ein `feature`-Issue mit den zugehörigen Kriterien-IDs, so geschnitten, dass ein PR reicht.
 - Pro Admin-Arbeit ein `admin-task`-Issue mit Abhängigkeit zum Feature.
 - Offene Restpunkte als `question`.
 - Vor dem Anlegen die Liste der Issues zeigen und bestätigen lassen.
@@ -63,10 +65,11 @@ Qualitätsprüfung vor Abgabe:
 - `config/settings_data.json` nie anfassen.
 - Nie auf ein Live-Theme pushen.
 - Keine Zugangsdaten, Tokens oder personenbezogenen Daten erfragen, loggen oder committen.
+- Kundenfassungen nur als secret Gist, nie public; keine internen Abschnitte (API-Versionen, Repo-Pfade, Aufwände). Gist-Link und Stand im Epic.
 
 ## Ausgabe
 
 1. Pfad der Spec und Kurzfassung (max. 5 Zeilen)
 2. Offene Fragen für den Kunden
 3. Annahmen
-4. Nach Freigabe: Liste der angelegten Issues mit Links
+4. Nach Freigabe: Epic mit vollständigem Spec-Text und Liste der angelegten Issues mit Links

@@ -33,16 +33,29 @@ body:
   - type: input
     id: spec
     attributes:
-      label: Spec-Dokument
+      label: Spec-Datei
+      description: Pfad zur Spec-Datei im Repo. Sie bleibt die Quelle.
       placeholder: docs/specs/<thema>.md
+  - type: textarea
+    id: spec_text
+    attributes:
+      label: Spec (vollständig)
+      description: Nach der Freigabe den vollständigen Spec-Text (Abschnitte 1–10) aus der Spec-Datei hier einfügen und die Version nennen. Das Epic ist die sichtbare Kopie; die Datei bleibt die Quelle. Bei einer neuen Version den Text hier aktualisieren.
+      placeholder: "Version: 1.0\n\n## 1. Ziel\n…\n\n## 2. Erfolg\n…"
   - type: textarea
     id: issues
     attributes:
       label: Zugehörige Issues
       description: Wird nach Freigabe der Spec befüllt (Sub-Issues oder Liste).
+  - type: input
+    id: kundenfassung
+    attributes:
+      label: Kundenfassung (Gist)
+      description: Link zum secret Gist der Kundenfassung, mit Stand und Version. Kein public Gist; bei vertraulichen Inhalten PDF/Mail oder Confluence.
+      placeholder: "https://gist.github.com/… · Stand 2026-11-11 · v1.0"
   - type: textarea
     id: freigabe
     attributes:
       label: Freigabe
-      description: Freigabe erfolgt in Confluence oder per Mail, nicht hier. Nachweis nach Freigabe eintragen.
-      value: "- Confluence-Link oder Mail-Datum mit Link: \n- Version: \n- Freigegeben von: \n- Datum: "
+      description: Freigabe per Mail oder Gist-Kommentar (Confluence optional, nur wenn der Kunde es nutzt), nicht hier im Issue. Beleg eintragen.
+      value: "- Freigegeben von: \n- Datum: \n- Version: \n- Beleg (Mail-Datum mit Link, Gist-Kommentar oder Confluence-Link): "

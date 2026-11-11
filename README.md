@@ -11,14 +11,18 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 | `docs/agenten-test.md` | Konformitätstest: sieben Tests mit Ja/Nein-Kriterien und Ergebnis-Tabelle je Agent |
 | `docs/ci.md` | Einbindung der wiederverwendbaren Theme Check- und Lighthouse-CI |
 | `skills/km-sdd-spec/assets/spec-vorlage.md` | Vorlage für `docs/specs/<thema>.md` im Projekt-Repo (vorher `docs/spec-vorlage.md`) |
-| `docs/kunde.md` | Kundensicht: Confluence als Schaufenster, Freigabeweg, Spec Sprint |
-| `skills/km-sdd-spec/assets/confluence-spec-seite.md` | Kundenlesbare Spec-Seite für den Confluence-Bereich des Kunden (vorher `templates/confluence/spec-seite.md`) |
+| `docs/kunde.md` | Kundensicht: Gist als Standard, Freigabeweg, Spec Sprint (Confluence optional) |
+| `skills/km-sdd-spec/assets/confluence-spec-seite.md` | Kundenfassungsvorlage für Gist/Mail/Confluence (Confluence optional; vorher `templates/confluence/spec-seite.md`) |
 | `docs/prompts.md` | Start-Prompts für jede Situation |
 | `docs/beispiel-relaunch-headless-zu-native.md` | Ausgearbeitetes Beispiel |
 | `templates/` | Dateien, die in Projekt-Repos kopiert werden (Issue-Formulare, PR-Vorlage, AGENTS.md-Abschnitt, Brücken `CLAUDE.md`/`GEMINI.md`) |
 | `labels.yml` | Standard-Labels |
 | `skills/` | Agent-Skills (Playbooks) pro Situation |
 | `scripts/` | Installation der Skills, Übernahme der Vorlagen, Label-Sync |
+
+## Ablauf
+
+GitHub Issues sind der sichtbare SDD-Ablauf: Das Epic-Issue trägt die freigegebene Spec vollständig, die Feature- und Admin-Issues hängen daran, Freigabe-Nachweis und Review stehen im Epic bzw. PR. Jira ist nicht Teil des Prozesses. Die Kundenfassung geht als secret Gist zum Kunden (Link per Mail), Mail ist Rückkanal und Freigabeweg; Confluence ist optional. Das Review übernimmt Kevin oder ein beliebiger Agent; festgelegt ist nur die Checkliste aus `km-pr-review`, kein bestimmter Reviewer oder Bot. Details: [`docs/prozess.md`](docs/prozess.md).
 
 ## Skills
 
@@ -61,6 +65,7 @@ Welche Coding-Agenten unterstützt sind und was je Agent zu beachten ist (Brück
 - `AGENTS.md` des Projekt-Repos hat Vorrang vor allem hier.
 - In Kunden-Orgs mit eigenen Vorlagen: deren Vorlagen nutzen, hier nur die Skills.
 - Keine Zugangsdaten, Tokens oder Kundendaten in dieses Repo.
+- Kundenfassungen nur als secret Gist (nie public) und ohne interne Abschnitte, Tokens oder personenbezogene Daten; Gist nicht löschen, solange er als Freigabe-Nachweis dient.
 - Skills ändern: vor dem Commit `./scripts/check-skills.sh` ausführen (benötigt Ruby). Die CI prüft dasselbe im Job `skills`: Frontmatter nach dem Agent-Skills-Standard, Sperrliste werkzeugspezifischer Begriffe (`scripts/skills-sperrliste.txt`), Verweise auf Dateien.
 
 ## Lizenz

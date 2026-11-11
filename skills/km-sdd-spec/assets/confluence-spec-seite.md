@@ -1,6 +1,9 @@
-<!-- Vorlage für die Confluence-Seite „Spec: <Thema>“ im Kundenbereich.
-     Quelle ist docs/specs/<thema>.md im Repo. Diese Seite ist die veröffentlichte,
-     kundenlesbare Kopie: ohne API-Versionen, Repo-Pfade und Code-vs-Admin-Abschnitt. -->
+<!-- Kundenfassung-Vorlage für Gist (Standard), Mail/PDF oder Confluence (optional).
+     Standard: als secret Gist veröffentlichen, Titel
+     „<Kunde/Projekt> – <Thema> · Stand <JJJJ-MM-TT> · v<Version>“; Link per Mail.
+     Quelle ist docs/specs/<thema>.md im Repo. Diese Fassung ist die veröffentlichte,
+     kundenlesbare Kopie: ohne API-Versionen, Repo-Pfade, interne Aufwände und Code-vs-Admin-Abschnitt.
+     Secret Gist = linkgeschützt, nicht zugriffsgeschützt: keine Preise, Verträge, personenbezogenen Daten. -->
 
 # Spec: <Thema>
 
@@ -11,7 +14,7 @@
 | **Freigegeben von / am** | – |
 | **Ansprechpartner** | Kevin Metzdorf |
 
-> **So geht Freigabe:** Prüfen Sie die Abschnitte 1–5. Fragen oder Änderungswünsche als Kommentar direkt an der Stelle, oder per Mail. Wenn alles passt, genügt ein Kommentar oder eine Mail: „Freigegeben, Version 1.0.“ Ab dann ist diese Version die Grundlage für Umsetzung und Abnahme. Alles, was später dazukommt, läuft als Änderungswunsch (Abschnitt 7).
+> **So geht Freigabe:** Prüfen Sie die Abschnitte 1–5. Fragen oder Änderungswünsche als Kommentar am Dokument (Gist- oder Confluence-Kommentar, GitHub-Konto nötig) oder per Mail. Wenn alles passt, genügt ein Kommentar oder eine Mail: „Freigegeben, Version 1.0.“ Ab dann ist diese Version die Grundlage für Umsetzung und Abnahme. Alles, was später dazukommt, läuft als Änderungswunsch (Abschnitt 7).
 
 ## 1. Ziel
 
