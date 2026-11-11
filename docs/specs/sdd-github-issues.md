@@ -74,7 +74,7 @@ Der SDD-Ablauf ist vollständig in GitHub Issues nachvollziehbar: Anforderung, S
 - [ ] **AK-2.3** `docs/prozess.md` beschreibt Phase 3 mit diesem Artefakt und Gate; der Abschnitt „Kunde und Confluence“ heißt „Kunde und Freigabe“ und beschreibt Confluence als optional.
 - [ ] **AK-2.4** `docs/prompts.md` enthält die Prompts „Kundenfassung als Gist veröffentlichen (Standard)“, „Kunden-Update als Gist“, „Freigabe eintragen“ ohne Confluence-Pflicht und „Spec in Epic eintragen“.
 - [ ] **AK-2.5** `skills/km-change-request/SKILL.md` und `templates/.github/ISSUE_TEMPLATE/05-change-request.yml` verlangen keine Confluence-Seite; sie nennen „Kundenfassung (Gist-Link, Mail-Datum oder Confluence)“.
-- [ ] **AK-2.6** `skills/km-sdd-spec/assets/confluence-spec-seite.md` ist im Kopf als optionales Asset gekennzeichnet.
+- [ ] **AK-2.6** `skills/km-sdd-spec/assets/confluence-spec-seite.md` ist im Kopf als Kundenfassungsvorlage für Gist/Mail/Confluence gekennzeichnet (Confluence optional).
 
 ### 5.3 Review neutral
 
@@ -108,7 +108,7 @@ n/a – reine Prozess- und Dokuänderung, keine Shopify-Oberfläche betroffen.
 
 - **Doppelte Pflege:** Spec-Datei und Epic-Text können auseinanderlaufen. Mitigation: Der Epic-Text wird nur beim Freigeben und bei Versionsänderungen neu eingefügt; Datei bleibt Quelle, Version und Link stehen im Epic.
 - **Review-Qualität:** Ohne festen Reviewer hängt die Tiefe am Menschen bzw. Agenten. Mitigation: Die `km-pr-review`-Checkliste bleibt verbindlich; CI und Theme Check bleiben Pflicht.
-- **Kunde ohne GitHub:** Der Kunde bekommt die Kundenfassung als secret Gist-Link oder als Markdown/PDF per Mail; Confluence bleibt optional.
+- **Kunde ohne GitHub-Konto:** Der Kunde liest den secret Gist über den Link ohne Konto; für vertrauliche Inhalte gibt es PDF/Mail oder Kunden-Confluence.
 - **Gist = Link-Geheimnis:** Ein secret Gist ist nicht zugriffsgeschützt; wer den Link hat, liest mit. Mitigation: keine vertraulichen Inhalte (Preise, Verträge, personenbezogene Daten) in Gists; dafür PDF/Mail oder Kunden-Confluence.
 - **Gist außerhalb des Repos:** Löschung oder Kontowechsel bricht den Nachweis-Link. Mitigation: Gist nicht löschen, finale Freigabe archivieren, Gist-URL mit Stand im Epic.
 - **Laufende Projekte:** Bestehende Projekte mit Jira oder Confluence laufen weiter. Mitigation: Übergangsregel in `docs/kunde.md` — der vereinbarte Kanal gilt, bis die nächste Spec startet.
@@ -126,7 +126,7 @@ n/a – reine Prozess- und Dokuänderung, keine Shopify-Oberfläche betroffen.
 ## 9. Annahmen
 
 - GitHub Issues sind für Kevin überall erreichbar; der Kunde braucht keinen GitHub-Zugriff.
-- Die Kundenfassung darf als Markdown/PDF per Mail gehen, wenn kein Confluence genutzt wird.
+- Die Kundenfassung geht standardmäßig als secret Gist; PDF/Mail nur bei vertraulichen Inhalten oder wenn der Kunde den Gist-Link nicht nutzen will.
 - `gh` CLI oder ein GitHub-MCP ist verfügbar; sonst gibt der Agent Texte zum manuellen Anlegen aus (bestehender Skill-Standard).
 
 ## 10. Änderungshistorie
