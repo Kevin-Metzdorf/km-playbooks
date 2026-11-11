@@ -5,7 +5,8 @@
 
 - Specs liegen unter `docs/specs/`. Eine freigegebene Spec ist die Quelle der Wahrheit für das Verhalten eines Features.
 - Das Epic-Issue trägt die freigegebene Spec vollständig (Abschnitte 1–10) samt Version und Link zum Dateipfad. Die Datei bleibt die Quelle, das Epic ist die sichtbare Kopie; bei einer neuen Version den Spec-Text im Epic aktualisieren.
-- Der Freigabe-Nachweis steht im Epic-Issue: wer, wann, Version und Beleg (Mail-Datum oder Link). Ohne diesen Eintrag ist die Spec nicht freigegeben.
+- Der Freigabe-Nachweis steht im Epic-Issue: wer, wann, Version und Beleg (Gist-URL + Stand, Mail-Datum oder Link). Ohne diesen Eintrag ist die Spec nicht freigegeben.
+- Kundenfassungen gehen als secret Gist (nie public) zum Kunden, ohne interne Abschnitte (API-Versionen, Repo-Pfade, Aufwände); Titel mit Kunde/Projekt, Stand, Version. Gist-Link und Stand stehen im Epic.
 - Vor der Umsetzung: Plan erstellen, jeder Schritt einem Akzeptanzkriterium zugeordnet.
 - Weicht die Umsetzung von der Spec ab oder fehlt etwas: anhalten, offene Frage formulieren, nicht raten.
 - Ein Branch und ein PR pro Issue. PR verwendet die PR-Vorlage und hakt jedes Kriterium einzeln ab.

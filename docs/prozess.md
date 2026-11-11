@@ -16,7 +16,7 @@ Der Ablauf hängt nicht an einem Werkzeug. Welche Coding-Agenten unterstützt si
 |---|-------|-------|----------|------|-------|
 | 1 | Anforderung | Warum, was grob? | Epic-Issue | Ziel, Nicht-Ziele, Erfolgsmessung schriftlich | `km-sdd-spec` |
 | 2 | Spezifikation | Was genau? | `docs/specs/<thema>.md` + Feature-Issues | Jedes Kriterium mit Ja/Nein prüfbar | `km-sdd-spec` |
-| 3 | Klärung & Freigabe | Eindeutig und abgenommen? | Spec v1.0 + Epic-Issue mit vollständigem Spec-Text + Freigabe-Nachweis | Dokumentierte Freigabe im Epic (wer, wann, Version, Nachweis) | `km-sdd-spec` |
+| 3 | Klärung & Freigabe | Eindeutig und abgenommen? | Spec v1.0 + Epic-Issue mit vollständigem Spec-Text + Kundenfassung als secret Gist + Freigabe-Nachweis | Dokumentierte Freigabe im Epic (wer, wann, Version, Beleg: Gist-URL + Stand, Mail-Datum oder Link) | `km-sdd-spec` |
 | 4 | Plan | Wie, in welcher Reihenfolge? | Umsetzungsplan, vorgelegt vor jeder Dateiänderung | Jeder Schritt ↔ ein Kriterium | Situations-Skill |
 | 5 | Implementierung | Bauen | Branch + PR je Issue | CI/Theme Check grün, PR verlinkt Issue | Situations-Skill |
 | 6 | Prüfung | Erfüllt es die Spec? | Review durch Kevin oder beliebigen Agenten im PR, Abnahme | Alle Kriterien ✅, Review-Ergebnis mit Datum im PR | `km-pr-review` |
@@ -55,10 +55,11 @@ Metafield-/Metaobject-Definitionen und Inhalte, Navigation, Redirects, Markets, 
 - Nie auf ein Live-Theme pushen; immer unveröffentlichtes Theme oder Dev-Store.
 - Shopify-API- und Liquid-Verhalten über das Shopify Dev MCP prüfen (sonst Shopify-Skills oder shopify.dev; Ungeprüftes kennzeichnen); API-Version nennen.
 - Keine Zugangsdaten, Tokens oder personenbezogenen Daten in Issues, Logs oder Commits.
+- Kundenfassungen nur als secret Gist (nie public) und ohne interne Abschnitte (API-Versionen, Repo-Pfade, Aufwände); Gist-Link und Stand im Epic.
 
 ## Kunde und Freigabe
 
-GitHub Issues sind der sichtbare Ablauf: Das Epic-Issue trägt den vollständigen Spec-Text und den Freigabe-Nachweis. Die Spec entsteht im Repo. Der Standardweg zum Kunden ist Mail (Kundenfassung als Markdown/PDF); Confluence ist optional und wird nur genutzt, wenn der Kunde es nutzt. Details: [`docs/kunde.md`](kunde.md).
+GitHub Issues sind der sichtbare Ablauf: Das Epic-Issue trägt den vollständigen Spec-Text und den Freigabe-Nachweis. Die Spec entsteht im Repo. Der Standardweg zum Kunden ist ein secret Gist-Link (Kundenfassung als Markdown), der per Mail verschickt wird; Mail ist Rückkanal und Freigabeweg. Confluence ist optional und wird nur genutzt, wenn der Kunde es nutzt. Details: [`docs/kunde.md`](kunde.md).
 
 ## Wo steht was
 
@@ -66,9 +67,11 @@ GitHub Issues sind der sichtbare Ablauf: Das Epic-Issue trägt den vollständige
 |-----|--------|-------|
 | GitHub Issues | Epic-Issue mit vollständigem Spec-Text und Freigabe-Nachweis, Feature- und Admin-Issues, PRs | sichtbarer Ablauf |
 | `docs/specs/<thema>.md` | versionierte Spec | Quelle der Wahrheit |
-| Mail (Standard), Confluence (optional) | Kundenfassung der Spec, offene Fragen, Freigaben | optionaler Kundenkanal |
+| GitHub Gist (secret, Standard) | Kundenfassung der Spec, Audits, offene Punkte, Status | Kundenkanal |
+| Mail | Freigabe, Rückfragen, Versand des Gist-Links | Rückkanal |
+| Confluence (optional) | Kundenfassung, Freigaben, wenn der Kunde Confluence nutzt | optionaler Kanal |
 
-Die Spec-Datei bleibt die Quelle, das Epic-Issue ist die sichtbare Kopie mit derselben Version. Bei Versionsänderungen wird der Text im Epic aktualisiert, es gibt keine zwei Quellen.
+Die Spec-Datei bleibt die Quelle, das Epic-Issue ist die sichtbare Kopie mit derselben Version, der Gist die Kundenfassung. Bei Versionsänderungen werden Epic-Text und Gist aktualisiert, es gibt keine zwei Quellen.
 
 ## Change Requests
 

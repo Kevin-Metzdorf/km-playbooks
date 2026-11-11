@@ -7,7 +7,7 @@ body:
     id: spec
     attributes:
       label: Betroffene Spec / Issues
-      description: Spec-Version und Kundenfassung nachvollziehbar machen (Mail-Datum, Link oder Confluence-Seite). Confluence ist optional.
+      description: Spec-Version und Kundenfassung nachvollziehbar machen (Gist-Link mit Stand, Mail-Datum oder Confluence-Seite). Gist ist Standard, Confluence optional.
       placeholder: "docs/specs/<thema>.md v1.0 · #12"
     validations:
       required: true

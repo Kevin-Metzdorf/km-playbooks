@@ -19,8 +19,8 @@ Ziel: Alles, was nicht in der freigegebenen Spec steht, ist ein Change Request. 
 1. **Prüfen:** Anliegen gegen die freigegebene Spec halten und die Spec-Version notieren. Steht es sinngemäß in der Spec → kein CR, normaler Umsetzungs-Issue. Steht es nicht darin → CR.
 2. **Bewerten:** Auswirkung auf Aufwand, Termin, betroffene Akzeptanzkriterien, Admin-Aufgaben und Risiken einschätzen; Annahmen notieren.
 3. **CR-Issue entwerfen:** Issue-Formular „Change Request“ (Label `change-request`), verknüpft mit Epic und Spec-Version. Felder: gewünschte Änderung, Begründung, Auswirkung, neue/geänderte Akzeptanzkriterien im Format Gegeben/Wenn/Dann. Vor dem Anlegen die Issue-Liste zeigen und bestätigen lassen.
-4. **Freigabe einholen:** Der Kunde gibt den CR frei — per Mail, als Kommentar oder in Confluence (optional, nur wenn der Kunde es nutzt), nie im Epic. Nachweis ins CR-Issue eintragen: wer, wann und Beleg (Mail-Datum oder Link). Eine Confluence-Seite ist dafür nicht nötig; ohne Kundenkanal genügt die Kundenfassung als Markdown/PDF per Mail.
-5. **Spec aktualisieren:** Nach Freigabe die Spec-Version hochzählen und die Änderung einpflegen; den Spec-Text im Epic-Issue mit derselben Version aktualisieren (Datei bleibt Quelle) und die Kundenfassung neu erzeugen, wenn eine genutzt wird; danach die Umsetzungs-Issues anlegen.
+4. **Freigabe einholen:** Der Kunde gibt den CR frei — per Mail, als Gist-Kommentar oder in Confluence (optional, nur wenn der Kunde es nutzt), nie im Epic. Nachweis ins CR-Issue eintragen: wer, wann und Beleg (Gist-URL + Stand, Mail-Datum oder Link). Kundenfassung als secret Gist (Standard); eine Confluence-Seite ist dafür nicht nötig.
+5. **Spec aktualisieren:** Nach Freigabe die Spec-Version hochzählen und die Änderung einpflegen; den Spec-Text im Epic-Issue mit derselben Version aktualisieren (Datei bleibt Quelle) und die Kundenfassung als neue Gist-Revision bzw. neu erzeugen, wenn eine genutzt wird; danach die Umsetzungs-Issues anlegen.
 
 ## Feste Regeln
 
