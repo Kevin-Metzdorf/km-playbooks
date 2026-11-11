@@ -76,7 +76,7 @@ case "$DATEI" in
   *) echo "Nur Markdown-Dateien (.md) sind erlaubt: $DATEI" >&2; exit 1 ;;
 esac
 if [[ ! "$STAND" =~ ^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$ ]]; then
-  echo "Stand muss ein gültiges Datum im Format JJJJ-MM-TT sein: $STAND" >&2
+  echo "Stand muss das Format JJJJ-MM-TT mit gültigem Monat/Tag haben: $STAND" >&2
   exit 1
 fi
 if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+$ ]]; then
@@ -89,7 +89,7 @@ case "$(basename "$DATEI")" in
 esac
 
 # Interne Marker, die nicht in die Kundenfassung gehören (EXTERN-Regel AK-5.2).
-MUSTER='api[-_ ]?version|(docs/specs|sections|snippets|templates|assets|blocks|config|layout|locales)/[A-Za-z0-9._/-]+|code vs\.? admin|ak-[0-9]|intern(e|en|er|em)?[[:space:]]+aufw(and|änd)|aufwand:|bearer |passw|token'
+MUSTER='api[-_ ]?version|(^|[^:/A-Za-z0-9._-])(docs|scripts|skills|sections|snippets|templates|assets|blocks|config|layout|locales|\.github)/[A-Za-z0-9._/-]+\.[A-Za-z0-9]+|code vs\.? admin|ak-[0-9]|intern(e|en|er|em)?[[:space:]]+aufw(and|änd)|aufwand:[[:space:]]*[0-9]|aufwand[[:space:]]+[0-9]|bearer |passw|token'
 TREFFER="$(grep -nEi "$MUSTER" "$DATEI" || true)"
 
 if [ -n "$TREFFER" ] && [ "$FORCE" != true ]; then
