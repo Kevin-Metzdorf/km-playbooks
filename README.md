@@ -18,7 +18,7 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 | `templates/` | Dateien, die in Projekt-Repos kopiert werden (Issue-Formulare, PR-Vorlage, AGENTS.md-Abschnitt, Brücken `CLAUDE.md`/`GEMINI.md`) |
 | `labels.yml` | Standard-Labels |
 | `skills/` | Agent-Skills (Playbooks) pro Situation |
-| `scripts/` | Installation der Skills, Übernahme der Vorlagen, Label-Sync |
+| `scripts/` | Installation der Skills, Übernahme der Vorlagen, Label-Sync, Veröffentlichen der Kundenfassung als Gist |
 
 ## Ablauf
 
@@ -48,6 +48,12 @@ GitHub Issues sind der sichtbare SDD-Ablauf: Das Epic-Issue trägt die freigegeb
 
 # 3. Labels im Projekt-Repo anlegen/aktualisieren (benötigt gh CLI, eingeloggt)
 ./scripts/sync-labels.sh owner/repo
+
+# 4. Kundenfassung als secret Gist veröffentlichen (prüft vorher die EXTERN-Regeln;
+#    ohne --dry-run wird der Gist direkt angelegt und die URL ausgegeben)
+./scripts/publish-kundenfassung.sh \
+  --kunde "De Berkel" --thema "Barrierefreiheits-Audit" --version 1.0 \
+  --datei pfad/zur/kundenfassung.md --dry-run
 ```
 
 Danach im Projekt-Repo den Abschnitt aus `templates/AGENTS.sdd-section.md` in die `AGENTS.md` übernehmen und auf das Projekt anpassen. `CLAUDE.md` und `GEMINI.md` (legt `apply-templates.sh` an) binden `AGENTS.md` nur ein; Regeln werden ausschließlich in `AGENTS.md` gepflegt.
