@@ -101,7 +101,7 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 
 **Einfach erklärt:** Alles, was unklar ist, wird jetzt geklärt – nicht während der Umsetzung. Dann gibt der Kunde die Spec frei. Was nicht in der Spec steht, ist ein Change Request.
 
-**Kundensicht:** Die Spec bleibt im Repo; nach `skills/km-sdd-spec/assets/confluence-spec-seite.md` wird eine kundenlesbare Kopie mit derselben Versionsnummer im Confluence-Bereich des Kunden veröffentlicht. API-Versionen, Repo-Pfade und „Code vs. Admin“ bleiben intern; die Kriterien werden als „Wenn/Dann“ formuliert, ohne Voraussetzungen zu verlieren. Der Kunde beantwortet dort die Fragen und gibt die Version per Kommentar oder Mail frei – nie im GitHub-Epic. Im Epic halten wir nur fest, wer wann welche Version freigegeben hat, mit Link zum Nachweis (bei Mail zusätzlich das Mail-Datum). Details: [Kundensicht](kunde.md).
+**Kundensicht:** Die Spec bleibt im Repo; für den Kunden entsteht daraus eine kundenlesbare Fassung. Standardweg ist Mail als Markdown/PDF, optional wird sie nach `skills/km-sdd-spec/assets/confluence-spec-seite.md` im Confluence-Bereich des Kunden veröffentlicht. API-Versionen, Repo-Pfade und „Code vs. Admin“ bleiben intern; die Kriterien werden als „Wenn/Dann“ formuliert, ohne Voraussetzungen zu verlieren. Der Kunde beantwortet die Fragen und gibt die Version per Mail oder Kommentar frei (GitHub-Kommentar, wenn er Zugriff hat). Das Epic-Issue trägt den vollständigen Spec-Text; den Nachweis der Freigabe – wer, wann, Version, Nachweis – halten wir dort fest. Details: [Kundensicht](kunde.md).
 
 **Typische offene Fragen beim Headless-Relaunch**
 - Werden alle Headless-Sonderfunktionen gebraucht oder reicht eine App?
@@ -113,9 +113,9 @@ Anforderung → Spezifikation → Klärung & Freigabe → Plan → Implementieru
 
 **Artefakte**
 - Abschnitt „Offene Fragen“ in der Spec – jede Frage mit Antwort und Datum.
-- Freigabe-Kommentar auf der Confluence-Seite oder schriftlich per Mail; Nachweis mit Person, Datum und Version im Epic verlinkt.
+- Freigabe per Mail oder Kommentar auf der Kundenfassung (Confluence optional); Nachweis mit Person, Datum und Version im Epic, bei Mail mit Mail-Datum und Link.
 
-**Gate:** Offene Fragen = 0 (oder bewusst als Annahme markiert) und Freigabe mit Person, Datum, Version und Link im Epic dokumentiert. Erst danach Umsetzungs-Issues anlegen.
+**Gate:** Offene Fragen = 0 (oder bewusst als Annahme markiert) und Freigabe mit Person, Datum, Version und Nachweis im Epic dokumentiert. Erst danach Umsetzungs-Issues anlegen.
 
 ---
 

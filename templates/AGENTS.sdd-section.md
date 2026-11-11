@@ -4,9 +4,12 @@
      CLAUDE.md und GEMINI.md binden AGENTS.md ein; Regeln nur hier pflegen. -->
 
 - Specs liegen unter `docs/specs/`. Eine freigegebene Spec ist die Quelle der Wahrheit für das Verhalten eines Features.
+- Das Epic-Issue trägt die freigegebene Spec vollständig (Abschnitte 1–10) samt Version und Link zum Dateipfad. Die Datei bleibt die Quelle, das Epic ist die sichtbare Kopie; bei einer neuen Version den Spec-Text im Epic aktualisieren.
+- Der Freigabe-Nachweis steht im Epic-Issue: wer, wann, Version und Beleg (Mail-Datum oder Link). Ohne diesen Eintrag ist die Spec nicht freigegeben.
 - Vor der Umsetzung: Plan erstellen, jeder Schritt einem Akzeptanzkriterium zugeordnet.
 - Weicht die Umsetzung von der Spec ab oder fehlt etwas: anhalten, offene Frage formulieren, nicht raten.
 - Ein Branch und ein PR pro Issue. PR verwendet die PR-Vorlage und hakt jedes Kriterium einzeln ab.
+- Review durch Mensch oder Agent; kein bestimmter Reviewer ist vorgeschrieben. Der Review-Nachweis steht im PR.
 - Arbeit im Shopify Admin (Metaobjects, Navigation, Redirects, Markets, Checkout, Apps) ist kein Code und läuft über `admin-task`-Issues.
 
 ### Feste Regeln (gelten immer, auch ohne Skill)

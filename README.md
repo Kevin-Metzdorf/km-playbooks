@@ -11,14 +11,18 @@ Zentrale Quelle für den Spec-Driven-Development-Prozess (SDD) von Kevin Metzdor
 | `docs/agenten-test.md` | Konformitätstest: sieben Tests mit Ja/Nein-Kriterien und Ergebnis-Tabelle je Agent |
 | `docs/ci.md` | Einbindung der wiederverwendbaren Theme Check- und Lighthouse-CI |
 | `skills/km-sdd-spec/assets/spec-vorlage.md` | Vorlage für `docs/specs/<thema>.md` im Projekt-Repo (vorher `docs/spec-vorlage.md`) |
-| `docs/kunde.md` | Kundensicht: Confluence als Schaufenster, Freigabeweg, Spec Sprint |
-| `skills/km-sdd-spec/assets/confluence-spec-seite.md` | Kundenlesbare Spec-Seite für den Confluence-Bereich des Kunden (vorher `templates/confluence/spec-seite.md`) |
+| `docs/kunde.md` | Kundensicht: Kundenwege und Freigabe (Confluence optional) |
+| `skills/km-sdd-spec/assets/confluence-spec-seite.md` | Optionale kundenlesbare Spec-Seite für den Confluence-Bereich des Kunden (vorher `templates/confluence/spec-seite.md`) |
 | `docs/prompts.md` | Start-Prompts für jede Situation |
 | `docs/beispiel-relaunch-headless-zu-native.md` | Ausgearbeitetes Beispiel |
 | `templates/` | Dateien, die in Projekt-Repos kopiert werden (Issue-Formulare, PR-Vorlage, AGENTS.md-Abschnitt, Brücken `CLAUDE.md`/`GEMINI.md`) |
 | `labels.yml` | Standard-Labels |
 | `skills/` | Agent-Skills (Playbooks) pro Situation |
 | `scripts/` | Installation der Skills, Übernahme der Vorlagen, Label-Sync |
+
+## Ablauf
+
+GitHub Issues sind der sichtbare SDD-Ablauf: Das Epic-Issue trägt die freigegebene Spec vollständig, die Feature- und Admin-Issues hängen daran, Freigabe-Nachweis und Review stehen im Epic bzw. PR. Jira ist nicht Teil des Prozesses. Das Review übernimmt Kevin oder ein beliebiger Agent; festgelegt ist nur die Checkliste aus `km-pr-review`, kein bestimmter Reviewer oder Bot. Confluence ist ein optionaler Kundenkanal. Details: [`docs/prozess.md`](docs/prozess.md).
 
 ## Skills
 

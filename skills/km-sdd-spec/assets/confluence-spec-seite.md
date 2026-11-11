@@ -1,4 +1,6 @@
-<!-- Vorlage für die Confluence-Seite „Spec: <Thema>“ im Kundenbereich.
+<!-- Optionale Kundenfassung für Confluence: nur nötig, wenn der Kunde Confluence nutzt.
+     Nutzt er es nicht, dieselbe Kundenfassung als Markdown/PDF per Mail senden.
+     Vorlage für die Confluence-Seite „Spec: <Thema>“ im Kundenbereich.
      Quelle ist docs/specs/<thema>.md im Repo. Diese Seite ist die veröffentlichte,
      kundenlesbare Kopie: ohne API-Versionen, Repo-Pfade und Code-vs-Admin-Abschnitt. -->
 

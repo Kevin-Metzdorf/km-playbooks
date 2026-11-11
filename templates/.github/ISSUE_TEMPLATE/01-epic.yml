@@ -33,8 +33,15 @@ body:
   - type: input
     id: spec
     attributes:
-      label: Spec-Dokument
+      label: Spec-Datei
+      description: Pfad zur Spec-Datei im Repo. Sie bleibt die Quelle.
       placeholder: docs/specs/<thema>.md
+  - type: textarea
+    id: spec_text
+    attributes:
+      label: Spec (vollständig)
+      description: Nach der Freigabe den vollständigen Spec-Text (Abschnitte 1–10) aus der Spec-Datei hier einfügen und die Version nennen. Das Epic ist die sichtbare Kopie; die Datei bleibt die Quelle. Bei einer neuen Version den Text hier aktualisieren.
+      placeholder: "Version: 1.0\n\n## 1. Ziel\n…\n\n## 2. Erfolg\n…"
   - type: textarea
     id: issues
     attributes:
@@ -44,5 +51,5 @@ body:
     id: freigabe
     attributes:
       label: Freigabe
-      description: Freigabe erfolgt in Confluence oder per Mail, nicht hier. Nachweis nach Freigabe eintragen.
-      value: "- Confluence-Link oder Mail-Datum mit Link: \n- Version: \n- Freigegeben von: \n- Datum: "
+      description: Freigabe per Mail, als Kommentar oder in Confluence (optional, nur wenn der Kunde es nutzt), nicht hier im Issue. Nachweis eintragen; Confluence ist nicht nötig.
+      value: "- Freigegeben von: \n- Datum: \n- Version: \n- Beleg (Mail-Datum, Link oder Confluence-Link): "

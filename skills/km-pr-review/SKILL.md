@@ -20,6 +20,9 @@ compatibility: "git. Optional: gh CLI oder GitHub-MCP, Shopify Dev MCP."
 4. Prüfen, ob die relevanten CI-Checks grün sind; Theme-Kriterien erst danach abhaken. Fehlende oder rote Checks als nicht erfüllt/blockierend benennen.
 5. Für **jedes Akzeptanzkriterium** feststellen: erfüllt / nicht erfüllt / nicht prüfbar aus dem Code – mit Beleg (Datei:Zeile).
 6. Shopify-spezifisch prüfen (Liquid bzw. GraphQL verifizieren, siehe Werkzeuge; API-Version nennen).
+7. Ergebnis als PR-Review oder PR-Kommentar mit Datum im PR dokumentieren: Ergebnis, Befunde, offene Fragen.
+
+Reviewer ist eine Person oder ein beliebiger Agent. Ein Review durch Mensch oder Agent erfüllt das Review-Gate.
 
 ## Prüfpunkte
 
@@ -35,6 +38,8 @@ Keine Stil-Kleinigkeiten melden, die ein Linter abdeckt.
 ## Feste Regeln
 
 - `AGENTS.md` des Repos hat Vorrang vor diesem Skill.
+- Reviewer ist eine Person oder ein beliebiger Agent; es wird kein bestimmter Reviewer und kein Bot vorausgesetzt oder angefordert.
+- Review-Ergebnis als PR-Review oder PR-Kommentar mit Datum, Ergebnis, Befunden und offenen Fragen im PR festhalten.
 - Review ist lesend — keine Änderungen am Code ohne Freigabe des Autors.
 - Nie Ungeprüftes als geprüft kennzeichnen; keine Zugangsdaten, Tokens oder personenbezogenen Daten im Review.
 

@@ -44,16 +44,17 @@ Qualitätsprüfung vor Abgabe:
 
 ## Phase 3 – Klärung und Freigabe (Gate)
 
-- Nach dem Spec-Entwurf eine kundenlesbare Confluence-Seite nach [assets/confluence-spec-seite.md](assets/confluence-spec-seite.md) erzeugen: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
-- Ist das Atlassian MCP verfügbar, die Seite direkt im Confluence-Bereich des Kunden anlegen; sonst Markdown zum Veröffentlichen ausgeben. Die Spec im Repo bleibt die Quelle, Confluence erhält eine veröffentlichte Kopie. Wird die Spec geändert, die Seite neu veröffentlichen und die Version hochzählen.
+- Nach dem Spec-Entwurf eine kundenlesbare Kundenfassung erzeugen, wenn eine gebraucht wird: Inhalt aus `docs/specs/<thema>.md` mit derselben Versionsnummer, ohne API-Versionen, Repo-Pfade und Abschnitt „Code vs. Admin“. Akzeptanzkriterien als **Wenn / Dann** formulieren; die Voraussetzungen aus „Gegeben“ dabei erhalten.
+- Die Kundenfassung ist optional: Nutzt der Kunde Confluence, die Seite nach [assets/confluence-spec-seite.md](assets/confluence-spec-seite.md) erzeugen (mit Atlassian MCP direkt anlegen, sonst Markdown zum Veröffentlichen ausgeben); nutzt er es nicht, dieselbe Kundenfassung als Markdown oder PDF per Mail senden.
 - Offene Fragen als Liste für den Kunden ausgeben, kundentauglich formuliert, ohne Fachjargon.
-- Der Kunde gibt auf der Confluence-Seite oder per Mail frei, nie im GitHub-Epic. Dort nur den Nachweis eintragen: wer, wann, welche Version und Link zur Freigabe (bei Mail zusätzlich das Mail-Datum).
-- **Stopp.** Ohne dokumentierte Freigabe (wer, wann, Version, Link im Epic) keine Issues für die Umsetzung anlegen.
+- Freigabe per Mail, als Kommentar auf der Kundenfassung oder in Confluence – nie im GitHub-Epic selbst. Im Epic nur den Nachweis eintragen: wer, wann, welche Version und Beleg (Mail-Datum, Link bzw. Confluence-Link). Confluence ist dafür nicht nötig.
+- **Stopp.** Ohne dokumentierte Freigabe (wer, wann, Version, Beleg im Epic) keine Issues für die Umsetzung anlegen.
 
 ## Nach der Freigabe – Issues
 
-- Ein Epic (Vorlage `Epic`) mit Verweis auf die Spec.
-- Pro abgrenzbarem Arbeitspaket ein `feature`-Issue mit den zugehörigen Kriterien-IDs, so geschnitten, dass ein PR reicht.
+- **Zuerst** das Epic (Vorlage `Epic`) anlegen oder aktualisieren: vollständiger Spec-Text (Abschnitte 1–10) aus `docs/specs/<thema>.md`, dazu Version und Link zum Dateipfad.
+- Die Spec-Datei bleibt die Quelle, das Epic ist die sichtbare Kopie – keine zwei Quellen. Bei einer Versionsänderung den Spec-Text im Epic mit derselben Version aktualisieren.
+- Danach pro abgrenzbarem Arbeitspaket ein `feature`-Issue mit den zugehörigen Kriterien-IDs, so geschnitten, dass ein PR reicht.
 - Pro Admin-Arbeit ein `admin-task`-Issue mit Abhängigkeit zum Feature.
 - Offene Restpunkte als `question`.
 - Vor dem Anlegen die Liste der Issues zeigen und bestätigen lassen.
@@ -69,4 +70,4 @@ Qualitätsprüfung vor Abgabe:
 1. Pfad der Spec und Kurzfassung (max. 5 Zeilen)
 2. Offene Fragen für den Kunden
 3. Annahmen
-4. Nach Freigabe: Liste der angelegten Issues mit Links
+4. Nach Freigabe: Epic mit vollständigem Spec-Text und Liste der angelegten Issues mit Links

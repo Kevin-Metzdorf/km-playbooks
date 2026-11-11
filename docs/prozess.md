@@ -16,10 +16,10 @@ Der Ablauf hängt nicht an einem Werkzeug. Welche Coding-Agenten unterstützt si
 |---|-------|-------|----------|------|-------|
 | 1 | Anforderung | Warum, was grob? | Epic-Issue | Ziel, Nicht-Ziele, Erfolgsmessung schriftlich | `km-sdd-spec` |
 | 2 | Spezifikation | Was genau? | `docs/specs/<thema>.md` + Feature-Issues | Jedes Kriterium mit Ja/Nein prüfbar | `km-sdd-spec` |
-| 3 | Klärung & Freigabe | Eindeutig und abgenommen? | Spec als Confluence-Seite veröffentlicht, offene Fragen beantwortet | Kunde hat auf der Confluence-Seite oder per Mail freigegeben (wer, wann, Version); Link im Epic eingetragen | `km-sdd-spec` |
+| 3 | Klärung & Freigabe | Eindeutig und abgenommen? | Spec v1.0 + Epic-Issue mit vollständigem Spec-Text + Freigabe-Nachweis | Dokumentierte Freigabe im Epic (wer, wann, Version, Nachweis) | `km-sdd-spec` |
 | 4 | Plan | Wie, in welcher Reihenfolge? | Umsetzungsplan, vorgelegt vor jeder Dateiänderung | Jeder Schritt ↔ ein Kriterium | Situations-Skill |
 | 5 | Implementierung | Bauen | Branch + PR je Issue | CI/Theme Check grün, PR verlinkt Issue | Situations-Skill |
-| 6 | Prüfung | Erfüllt es die Spec? | Review, Abnahme | Alle Kriterien ✅ | `km-pr-review` |
+| 6 | Prüfung | Erfüllt es die Spec? | Review durch Kevin oder beliebigen Agenten im PR, Abnahme | Alle Kriterien ✅, Review-Ergebnis mit Datum im PR | `km-pr-review` |
 
 Für Theme-Repos gehören der grüne Theme-Check-Pflicht-Check und – wenn in der
 Spec Performance-Ziele stehen – der Lighthouse-Lauf zur Prüfung. Einrichtung,
@@ -56,9 +56,19 @@ Metafield-/Metaobject-Definitionen und Inhalte, Navigation, Redirects, Markets, 
 - Shopify-API- und Liquid-Verhalten über das Shopify Dev MCP prüfen (sonst Shopify-Skills oder shopify.dev; Ungeprüftes kennzeichnen); API-Version nennen.
 - Keine Zugangsdaten, Tokens oder personenbezogenen Daten in Issues, Logs oder Commits.
 
-## Kunde und Confluence
+## Kunde und Freigabe
 
-GitHub ist die Werkstatt, Confluence das Schaufenster. Die Spec entsteht im Repo; die kundenlesbare Kopie (Vorlage `skills/km-sdd-spec/assets/confluence-spec-seite.md`) wird im Confluence-Bereich des Kunden veröffentlicht, dort werden Fragen beantwortet und Freigaben gegeben. Details: [`docs/kunde.md`](kunde.md).
+GitHub Issues sind der sichtbare Ablauf: Das Epic-Issue trägt den vollständigen Spec-Text und den Freigabe-Nachweis. Die Spec entsteht im Repo. Der Standardweg zum Kunden ist Mail (Kundenfassung als Markdown/PDF); Confluence ist optional und wird nur genutzt, wenn der Kunde es nutzt. Details: [`docs/kunde.md`](kunde.md).
+
+## Wo steht was
+
+| Ort | Inhalt | Rolle |
+|-----|--------|-------|
+| GitHub Issues | Epic-Issue mit vollständigem Spec-Text und Freigabe-Nachweis, Feature- und Admin-Issues, PRs | sichtbarer Ablauf |
+| `docs/specs/<thema>.md` | versionierte Spec | Quelle der Wahrheit |
+| Mail (Standard), Confluence (optional) | Kundenfassung der Spec, offene Fragen, Freigaben | optionaler Kundenkanal |
+
+Die Spec-Datei bleibt die Quelle, das Epic-Issue ist die sichtbare Kopie mit derselben Version. Bei Versionsänderungen wird der Text im Epic aktualisiert, es gibt keine zwei Quellen.
 
 ## Change Requests
 
